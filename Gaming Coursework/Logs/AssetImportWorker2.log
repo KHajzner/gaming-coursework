@@ -4190,3 +4190,147 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3316,893204 seconds.
+  path: Packages/com.unity.2d.sprite/Editor/Unity.2D.Sprite.Editor.asmdef
+  artifactKey: Guid(2c573e6b271651846a79655161004c5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/Editor/Unity.2D.Sprite.Editor.asmdef using Guid(2c573e6b271651846a79655161004c5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f9dd0502afdd95c72fce7ea978d4433') in 0,002110 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0,951759 seconds.
+  path: Packages/com.unity.2d.sprite/package.json
+  artifactKey: Guid(7dc5f1e5d04ac8549ac21802071e983b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.sprite/package.json using Guid(7dc5f1e5d04ac8549ac21802071e983b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5b6b471d19d39fec69c0fc8c85ea245') in 0,013035 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 32,283466 seconds.
+  path: Assets/gamebg.png
+  artifactKey: Guid(8ef0f467f94d11118814c52068dc010b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/gamebg.png using Guid(8ef0f467f94d11118814c52068dc010b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2787cb671b90310716a6328342b36232') in 0,062576 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 447,559200 seconds.
+  path: Packages/com.unity.2d.tilemap.extras/package.json
+  artifactKey: Guid(a9f15b7c9363d9944a7d69248fd279ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.tilemap.extras/package.json using Guid(a9f15b7c9363d9944a7d69248fd279ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b8b63d6527ba9a008023b369edd30d7') in 0,001311 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0,654664 seconds.
+  path: Packages/com.unity.2d.tilemap/package.json
+  artifactKey: Guid(51797d68d3132bb419217a229e09fc47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.tilemap/package.json using Guid(51797d68d3132bb419217a229e09fc47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99ff338c4bf866204a405a700557a0c6') in 0,001392 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 2,046197 seconds.
+  path: Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/Closed Sprite Shape.prefab
+  artifactKey: Guid(c0583b4e855c74b8c82e7b9b5efb5ce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/Closed Sprite Shape.prefab using Guid(c0583b4e855c74b8c82e7b9b5efb5ce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05b3096b6c0fed730c29d5cec08d7b55') in 0,050726 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 36,979500 seconds.
+  path: Packages/com.unity.2d.common/package.json
+  artifactKey: Guid(68f1917ec3cac45b080c26153375c2bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.common/package.json using Guid(68f1917ec3cac45b080c26153375c2bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '200f4b568c514ffa3469a0c44ef4291c') in 0,001623 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0,560978 seconds.
+  path: Packages/com.unity.2d.pixel-perfect/package.json
+  artifactKey: Guid(b1c570008ebc15d4183516ca5722a39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.pixel-perfect/package.json using Guid(b1c570008ebc15d4183516ca5722a39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97bd61bce2278759036355c3ce4bba8f') in 0,001672 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 194,492404 seconds.
+  path: Assets/BasicColor/New Palette.prefab
+  artifactKey: Guid(16729ca412665b93eb3e87782c0aa278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BasicColor/New Palette.prefab using Guid(16729ca412665b93eb3e87782c0aa278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ee0ec9e49758e304805f7d035b29892') in 0,020493 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 68,347267 seconds.
+  path: Assets/BasicColor/New Palette.prefab
+  artifactKey: Guid(16729ca412665b93eb3e87782c0aa278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BasicColor/New Palette.prefab using Guid(16729ca412665b93eb3e87782c0aa278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3028101688362959fab31131b681c372') in 0,055581 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 234,667636 seconds.
+  path: Assets/Palette/Hello.prefab
+  artifactKey: Guid(06bf92635eb1d9fdab115634f75b8bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Palette/Hello.prefab using Guid(06bf92635eb1d9fdab115634f75b8bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba2d262d562468a97b592a458851ff0c') in 0,017002 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 32,523185 seconds.
+  path: Assets/Screenshot from 2023-11-01 12-07-38.png
+  artifactKey: Guid(01d4d3bf4e6268b63ab7402eb12c00d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Screenshot from 2023-11-01 12-07-38.png using Guid(01d4d3bf4e6268b63ab7402eb12c00d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f69f77236e7272924d29885c164ec94') in 0,050411 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 35,166036 seconds.
+  path: Assets/Screenshot from 2023-11-01 12-08-20.png
+  artifactKey: Guid(d527ec84d1d2a8c85baffd07e33f1c00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Screenshot from 2023-11-01 12-08-20.png using Guid(d527ec84d1d2a8c85baffd07e33f1c00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '123eca925047ba80d39d90b9a243d2a2') in 0,073884 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 26,290631 seconds.
+  path: Assets/BasicColor/New Palette.prefab
+  artifactKey: Guid(16729ca412665b93eb3e87782c0aa278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BasicColor/New Palette.prefab using Guid(16729ca412665b93eb3e87782c0aa278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0801402bdc7f328513a68c3e947b08df') in 0,020281 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 12,589009 seconds.
+  path: Packages/com.unity.2d.spriteshape/package.json
+  artifactKey: Guid(4eabc3d1ad1424372b03cfc117521e24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.spriteshape/package.json using Guid(4eabc3d1ad1424372b03cfc117521e24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d667d11ee89b040d337b3b4f2bf39c5') in 0,001449 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1,757025 seconds.
+  path: Packages/com.unity.2d.aseprite/package.json
+  artifactKey: Guid(fcf2f4964f64c4a0fa8c994d677d8bd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.aseprite/package.json using Guid(fcf2f4964f64c4a0fa8c994d677d8bd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d5fabb25ee8c4d8647ba8ef2d8f1724') in 0,001343 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0,663497 seconds.
+  path: Packages/com.unity.2d.animation/package.json
+  artifactKey: Guid(9e83c20a8293f44ec8a375d3805f477d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.animation/package.json using Guid(9e83c20a8293f44ec8a375d3805f477d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d02e5f6cbd07e0babba3be7cf16832a') in 0,001330 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 287,486512 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd965f9905827ded32575495cbe7b169') in 0,000757 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0

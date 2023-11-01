@@ -4118,3 +4118,27 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 3986,983288 seconds.
+  path: Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/Open Sprite Shape.prefab
+  artifactKey: Guid(86ae7de409eb54f619fb1328e4d42480) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/Open Sprite Shape.prefab using Guid(86ae7de409eb54f619fb1328e4d42480) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7948c444e0bbeb237b32fa11c76120e') in 0,091503 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 629,207372 seconds.
+  path: Assets/BasicColor/Screenshot from 2023-11-01 12-07-38.asset
+  artifactKey: Guid(c8358596474feab689cb344772e6cb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BasicColor/Screenshot from 2023-11-01 12-07-38.asset using Guid(c8358596474feab689cb344772e6cb0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d07443b8a726747a3ac0909c88a06b4') in 0,018693 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0,000213 seconds.
+  path: Assets/BasicColor/Screenshot from 2023-11-01 12-08-20.asset
+  artifactKey: Guid(8f0398c62d0c0724ab8e7a92acd65b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BasicColor/Screenshot from 2023-11-01 12-08-20.asset using Guid(8f0398c62d0c0724ab8e7a92acd65b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ea42353d7c94a566be1675a3cb4c18e') in 0,017781 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3

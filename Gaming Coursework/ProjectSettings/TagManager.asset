@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Sand
-  - Ice
+  - Water
+  - Mud
   layers:
   - Default
   - TransparentFX
@@ -15,7 +15,7 @@ TagManager:
   - UI
   - Player
   - Background
-  - Obstacles
+  - Entities
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 1313428857
+    locked: 0
+  - name: Entities
+    uniqueID: 514016533
     locked: 0
   - name: Players
     uniqueID: 42821765

@@ -29,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(collision.tag == "Mud"){
-            slides = true;
             speed = 7f;
+            slides = true;
         }
     }
 

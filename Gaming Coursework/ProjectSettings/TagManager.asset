@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Water
   - Mud
+  - MudVertical
+  - MudHorizontal
   layers:
   - Default
   - TransparentFX

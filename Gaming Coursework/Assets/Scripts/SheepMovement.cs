@@ -15,7 +15,6 @@ public class SheepMovement : MonoBehaviour
     private Vector3 chosenSpot;
     public float barnSpeed = 0.5f;
     public bool inBarn = false;
-    public bool enteredBarn = false;
     public Barn barn;
     void Start()
     {
@@ -55,11 +54,7 @@ public class SheepMovement : MonoBehaviour
         if (collision.tag == "BarnEntrance"){
             carrot = false;
             inBarn = true;
-            if (!enteredBarn){
-                enteredBarn = true;
-                barn.sheepCount += 1;
-
-            }
+            barn.sheepCount += 1;            
         }
 
     }

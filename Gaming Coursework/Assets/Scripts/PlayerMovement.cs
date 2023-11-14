@@ -8,21 +8,29 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public Rigidbody2D rb;
     bool slides;
+    bool verctical;
     Vector2 direction;
     Vector2 standardVector;
-    Vector2 standardsVector;
     // Update is called once per frame
     void Update()
     {   
-        if (!slides){
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
-}
+            direction.x = Input.GetAxisRaw("Horizontal");
+            direction.y = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        if (slides){
+            if (verctical){
+                rb.MovePosition(rb.position + standardVector * speed * Time.fixedDeltaTime);
+                }
+            else {
+                rb.MovePosition(rb.position + standardVector * speed * Time.fixedDeltaTime);
+                }
+        }
+        else{
+            rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -33,15 +41,15 @@ public class PlayerMovement : MonoBehaviour
         if(collision.tag == "MudVertical"){
             speed = 7f;
             standardVector = new Vector2(0.0f, direction.y);
-            rb.MovePosition(rb.position + standardVector * speed * Time.fixedDeltaTime);
             slides = true;
+            verctical = true;
         }
         
         if(collision.tag == "MudHorizontal"){
             speed = 7f;
             standardVector = new Vector2(direction.x, 0.0f);
-            rb.MovePosition(rb.position + standardVector * speed * Time.fixedDeltaTime);
             slides = true;
+            verctical = false;
         }
     }
 

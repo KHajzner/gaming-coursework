@@ -11,8 +11,6 @@ public class SheepSpawning : MonoBehaviour
     public List<Vector3> freeSpots;
     public float sheepPerSpawn = 3f;
     private Vector3 chosenSpot;
-
-    // Start is called before the first frame update
     void Start()
     { 
         freeSpots = new List<Vector3>();

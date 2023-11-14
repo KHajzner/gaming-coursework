@@ -8,6 +8,8 @@ TagManager:
   - Mud
   - MudVertical
   - MudHorizontal
+  - Barn
+  - BarnEntrance
   layers:
   - Default
   - TransparentFX

@@ -54,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D collision){
-        speed = 5f;
-        slides = false;
+        if (collision.tag == "MudHorizontal" || collision.tag == "MudVertical" || collision.tag == "Water"){
+            speed = 5f;
+            slides = false;
+        }
     }
 }

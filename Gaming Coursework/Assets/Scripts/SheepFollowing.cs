@@ -10,16 +10,20 @@ public class SheepFollowing : MonoBehaviour
     public Rigidbody2D sheep;
     public float distanceBetween;
     public float speed;
-    void Start()
-    {
-        
-    }
+    public bool carrot = false;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(player.transform.position, sheep.position) < distanceBetween){
+        if (Vector2.Distance(player.transform.position, sheep.position) < distanceBetween && carrot){
             sheep.position = Vector2.MoveTowards(sheep.position, player.position, speed * Time.deltaTime);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D collision) 
+    {
+        if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        {
+            carrot = true;
         }
     }
 }

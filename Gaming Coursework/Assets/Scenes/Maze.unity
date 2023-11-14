@@ -196,13 +196,12 @@ GameObject:
   - component: {fileID: 950112689}
   - component: {fileID: 950112688}
   - component: {fileID: 950112692}
-  - component: {fileID: 950112693}
   - component: {fileID: 950112690}
-  - component: {fileID: 950112691}
+  - component: {fileID: 950112695}
   - component: {fileID: 950112694}
   m_Layer: 8
   m_Name: Sheep
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 950112687}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.5, y: 2.63, z: 0}
+  m_LocalPosition: {x: -32.52, y: 2.53, z: 0}
   m_LocalScale: {x: 4.0097, y: 4.0097, z: 4.0097}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -309,23 +308,6 @@ CircleCollider2D:
   m_Offset: {x: 0.0014928513, y: -0.0042652767}
   serializedVersion: 2
   m_Radius: 0.10348504
---- !u!114 &950112691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950112687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0593f4408f644c9d78955372d909beb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1355283141}
-  sheep: {fileID: 950112692}
-  distanceBetween: 3
-  speed: 3
-  carrot: 0
 --- !u!50 &950112692
 Rigidbody2D:
   serializedVersion: 4
@@ -353,8 +335,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &950112693
-CapsuleCollider2D:
+--- !u!114 &950112694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950112687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c5e2a417473a8d5bdf8eec0417fa0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1355283141}
+  sheep: {fileID: 950112692}
+  distanceBetween: 3
+  speed: 3
+  carrot: 0
+  barnMap: {fileID: 1380943182}
+  freeSpots: []
+  barnSpeed: 0.5
+  inBarn: 0
+  enteredBarn: 0
+  barn: {fileID: 1319522111}
+--- !u!61 &950112695
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -385,27 +390,19 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0047734855, y: -0.0150680225}
-  m_Size: {x: 0.31189814, y: 0.44694644}
-  m_Direction: 0
---- !u!114 &950112694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 950112687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9b94c42addccd850a1ee35201b19483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheep: {fileID: 950112692}
-  tilemap: {fileID: 1380943182}
-  sheepAI: {fileID: 950112691}
-  freeSpots: []
-  barnSpeed: 1
-  inBarn: 0
+  m_Offset: {x: -0.0033545047, y: -0.003354609}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.632655, y: 0.6702266}
+  m_EdgeRadius: 0
 --- !u!1 &1038269811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,6 +1970,7 @@ GameObject:
   - component: {fileID: 1319522110}
   - component: {fileID: 1319522109}
   - component: {fileID: 1319522108}
+  - component: {fileID: 1319522111}
   m_Layer: 7
   m_Name: Barn Entrance
   m_TagString: BarnEntrance
@@ -2089,16 +2087,6 @@ Tilemap:
   m_GameObject: {fileID: 1319522106}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: -3, y: -5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -2, y: -5, z: 0}
     second:
       serializedVersion: 2
@@ -2129,16 +2117,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 1, y: -5, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 8
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -2157,8 +2135,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 5
-    m_Data: {fileID: 11400000, guid: c9e2a756d698ed9448e5222b0396c453, type: 2}
+  - m_RefCount: 3
+    m_Data: {fileID: 11400000, guid: c82cd6ca3747c3c4aa2f80e9507068f7, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -2176,10 +2154,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 5
-    m_Data: {fileID: -405098324259038093, guid: 49ebf7de40457d84495983a6734b2c68, type: 3}
+  - m_RefCount: 3
+    m_Data: {fileID: 4959342113610361446, guid: 49ebf7de40457d84495983a6734b2c68, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 5
+  - m_RefCount: 3
     m_Data:
       e00: 1
       e01: 0
@@ -2198,7 +2176,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 5
+  - m_RefCount: 3
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -2224,6 +2202,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1319522111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319522106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b4ecb25e66fe6de9c9df88e340e252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepCount: 0
 --- !u!1 &1355283140
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class SheepMovement : MonoBehaviour
     private Vector3 chosenSpot;
     public float barnSpeed = 0.5f;
     public bool inBarn = false;
+    public bool enteredBarn = false;
+    public Barn barn;
     void Start()
     {
         for (int n = barnMap.cellBounds.xMin; n < barnMap.cellBounds.xMax; n++)
@@ -36,7 +38,7 @@ public class SheepMovement : MonoBehaviour
         if (Vector2.Distance(player.transform.position, sheep.position) < distanceBetween && carrot){
             sheep.position = Vector2.MoveTowards(sheep.position, player.position, speed * Time.deltaTime);
         }
-        if(inBarn){
+        if (inBarn){
             transform.position = Vector3.MoveTowards(transform.position, chosenSpot, barnSpeed * Time.fixedDeltaTime);
         }
     }
@@ -49,14 +51,20 @@ public class SheepMovement : MonoBehaviour
     }
 
 
-    void OnTriggerExit2D(Collider2D collision){
+    void OnTriggerEnter2D(Collider2D collision){
         if (collision.tag == "BarnEntrance"){
             carrot = false;
             inBarn = true;
+            if (!enteredBarn){
+                enteredBarn = true;
+                barn.sheepCount += 1;
+
+            }
         }
+
     }
     
     void MoveInBarn(){
-            chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
+        chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
     }
 }

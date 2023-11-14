@@ -10,6 +10,7 @@ TagManager:
   - MudHorizontal
   - Barn
   - BarnEntrance
+  - Sheep
   layers:
   - Default
   - TransparentFX

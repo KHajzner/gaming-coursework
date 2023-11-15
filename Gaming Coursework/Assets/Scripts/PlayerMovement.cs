@@ -7,15 +7,18 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 5f;
     public Rigidbody2D rb;
+    public Animator animator;
+    bool facesRight = false;
     bool slides;
     bool verctical;
     Vector2 direction;
     Vector2 standardVector;
-    // Update is called once per frame
+
     void Update()
     {   
-            direction.x = Input.GetAxisRaw("Horizontal");
-            direction.y = Input.GetAxisRaw("Vertical");
+        direction.x = Input.GetAxisRaw("Horizontal");
+        direction.y = Input.GetAxisRaw("Vertical");
+        animator.SetBool("Speed", (direction.x != 0 || direction.y != 0));
     }
 
     void FixedUpdate()
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         else{
             rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
         }
+        SwitchRotation(direction * speed * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -57,6 +61,15 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "MudHorizontal" || collision.tag == "MudVertical" || collision.tag == "Water"){
             speed = 5f;
             slides = false;
+        }
+    }
+
+    void SwitchRotation(Vector2 direction){
+        if ((direction.x > 0 && !facesRight) || (direction.x < 0 && facesRight)){
+            facesRight = !facesRight;
+            Vector3 face = transform.localScale;
+            face.x *= -1;
+            transform.localScale = face;
         }
     }
 }

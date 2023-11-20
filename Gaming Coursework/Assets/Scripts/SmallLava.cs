@@ -1,13 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SmallLava : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Tilemap spawnArea;
+    public Tilemap lavaArea;
     void Start()
     {
         transform.position = new Vector3(20, 0, 0);
+        for (int n = lavaArea.cellBounds.xMin; n < lavaArea.cellBounds.xMax; n++)
+        {
+            for (int p = lavaArea.cellBounds.yMin; p < lavaArea.cellBounds.yMax; p++)
+            {
+               Vector3Int localPlace = (new Vector3Int(n, p, (int)lavaArea.transform.position.y));
+                if (lavaArea.HasTile(localPlace))
+                {
+                    Vector3 cellPosition = lavaArea.CellToWorld(localPlace);
+                    var emptyTheCell = spawnArea.WorldToCell(cellPosition);
+                    spawnArea.SetTile(emptyTheCell, null);
+                }
+            }
+        }
     }
+    
 
 }

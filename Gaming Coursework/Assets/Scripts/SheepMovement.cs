@@ -16,6 +16,7 @@ public class SheepMovement : MonoBehaviour
     public float barnSpeed = 0.5f;
     public bool inBarn = false;
     public Barn barn;
+    Vector3 raycastDirection;
     void Start()
     {
         for (int n = barnMap.cellBounds.xMin; n < barnMap.cellBounds.xMax; n++)
@@ -34,12 +35,16 @@ public class SheepMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Vector2.Distance(player.transform.position, sheep.position) < distanceBetween && carrot){
+        LayerMask layerMask = LayerMask.GetMask("Player");
+        raycastDirection = player.position - sheep.position;
+        RaycastHit2D hit = Physics2D.Raycast(sheep.position, raycastDirection);
+        if (inBarn){
+            sheep.position = Vector2.MoveTowards(transform.position, chosenSpot, barnSpeed * Time.fixedDeltaTime);
+        }
+        else if (hit.collider.name != "Wall" && carrot){
             sheep.position = Vector2.MoveTowards(sheep.position, player.position, speed * Time.deltaTime);
         }
-        if (inBarn){
-            transform.position = Vector3.MoveTowards(transform.position, chosenSpot, barnSpeed * Time.fixedDeltaTime);
-        }
+
     }
 
     void OnTriggerStay2D(Collider2D collision) {

@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public Animator animator;
-    void Update(){
-        if (Input.GetMouseButtonDown(0)){
-              Debug.Log("attack :3!");
-        animator.SetTrigger("Attack");
+    bool clickedRecently = false;
+    void FixedUpdate(){
+        if (Input.GetMouseButtonDown(0) && !clickedRecently){
+            StartCoroutine(RecentClick());
         }
+    }
+
+    IEnumerator RecentClick(){
+        clickedRecently = true;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.6f);
+        clickedRecently = false;
     }
 }

@@ -31,6 +31,10 @@ public class PeasantAI : MonoBehaviour
         if(collision.tag == "Lava"){
             damageRoutine = StartCoroutine(LavaDamage());
         }
+        if(collision.tag == "Player"){
+            Debug.Log("Dealt dmg!");
+            TakeDamage(5f);
+        }
     }
     void OnTriggerExit2D(Collider2D collision){
         if(collision.tag == "Lava"){
@@ -50,13 +54,19 @@ public class PeasantAI : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage){
+        health -= damage;
+        animator.SetTrigger("Hurt");
+        flashRedRoutine = StartCoroutine(FlashRed());
+    }
+
     IEnumerator LavaDamage(){
         while (health > 0)
         {
             health -= 10f;
+            animator.SetTrigger("Hurt");
             flashRedRoutine = StartCoroutine(FlashRed());
             yield return new WaitForSeconds(1f);
-
         }
     }
     IEnumerator Death(){
@@ -65,9 +75,11 @@ public class PeasantAI : MonoBehaviour
     	Destroy(gameObject);
     }
 
-    IEnumerator  FlashRed(){
+    IEnumerator FlashRed(){
+        speed = 0;
         GetComponent<SpriteRenderer> ().color = Color.red;
         yield return new WaitForSeconds(0.3f); 
+        speed = 2;
         GetComponent<SpriteRenderer> ().color = Color.white;     
         yield return new WaitForSeconds(0.3f); 
     }

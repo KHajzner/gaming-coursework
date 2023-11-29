@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 
 	public float health;
     Coroutine damageRoutine = null;
+    Coroutine flashRedRoutine = null;
+
     public GameObject lost;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         if(collision.tag == "Lava"){
             Debug.Log("uwu");
             StopCoroutine(damageRoutine);
+            StopCoroutine(flashRedRoutine);
         }
     }
     IEnumerator LavaDamage(){
@@ -47,11 +50,19 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("Entered Lava");
             health -= 10f;
+            flashRedRoutine = StartCoroutine(FlashRed());
             yield return new WaitForSeconds(1f);
         }
     }
     public void Restart(){
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+    }
+
+    IEnumerator  FlashRed(){
+        GetComponent<SpriteRenderer> ().color = Color.red;
+        yield return new WaitForSeconds(0.3f); 
+        GetComponent<SpriteRenderer> ().color = Color.white;     
+        yield return new WaitForSeconds(0.3f); 
     }
 }

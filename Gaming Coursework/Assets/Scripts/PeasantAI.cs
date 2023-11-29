@@ -7,9 +7,11 @@ public class PeasantAI : MonoBehaviour
     public Rigidbody2D player;
     public Rigidbody2D peasant;
     public float speed;
-    public float distanceBetween = 5f;
+    public float distanceBetween = 3f;
 	public float health;
+    public Animator animator;
     Coroutine damageRoutine = null;
+    Coroutine flashRedRoutine = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,8 @@ public class PeasantAI : MonoBehaviour
     void Update()
     {
         if (health == 0){
-        	Destroy(gameObject);
+            speed = 0;
+            StartCoroutine(Death());
         }
     }
     
@@ -32,20 +35,40 @@ public class PeasantAI : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision){
         if(collision.tag == "Lava"){
             StopCoroutine(damageRoutine);
+            StopCoroutine(flashRedRoutine);
+            GetComponent<SpriteRenderer> ().color = Color.white;   
         }
     }
     void FixedUpdate()
     {
         if (Vector2.Distance(player.transform.position, peasant.position) < distanceBetween){
             peasant.position = Vector2.MoveTowards(peasant.position, player.position, speed * Time.deltaTime);
-        }   
+            animator.SetBool("Moving", true);
+        }
+        else{
+            animator.SetBool("Moving", false);
+        }
     }
 
     IEnumerator LavaDamage(){
         while (health > 0)
         {
             health -= 10f;
+            flashRedRoutine = StartCoroutine(FlashRed());
             yield return new WaitForSeconds(1f);
+
         }
+    }
+    IEnumerator Death(){
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(0.5f);
+    	Destroy(gameObject);
+    }
+
+    IEnumerator  FlashRed(){
+        GetComponent<SpriteRenderer> ().color = Color.red;
+        yield return new WaitForSeconds(0.3f); 
+        GetComponent<SpriteRenderer> ().color = Color.white;     
+        yield return new WaitForSeconds(0.3f); 
     }
 }

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {   
         direction.x = Input.GetAxisRaw("Horizontal");
         direction.y = Input.GetAxisRaw("Vertical");
-        animator.SetBool("Speed", (direction.x != 0 || direction.y != 0));
+        animator.SetBool("Moving", (direction.x != 0 || direction.y != 0));
     }
 
     void FixedUpdate()

@@ -12,6 +12,7 @@ TagManager:
   - BarnEntrance
   - Sheep
   - Lava
+  - Sword
   layers:
   - Default
   - TransparentFX

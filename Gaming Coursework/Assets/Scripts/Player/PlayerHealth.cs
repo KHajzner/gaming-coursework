@@ -2,22 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-
+    float maxHealth = 10;
 	public float health;
     Coroutine damageRoutine = null;
     Coroutine deathRoutine = null;
     public Animator animator;
-
     public GameObject lost;
-    // Start is called before the first frame update
+
+    // Health UI by ariel oliveira
+    private GameObject[] heartContainers;
+    private Image[] heartFills;
+    public Transform heartsParent;
+    public GameObject heartContainerPrefab;
+    public delegate void OnHealthChangedDelegate();
+    public OnHealthChangedDelegate onHealthChangedCallback;
+    //End of Health UI
+
     void Start()
     {
-        health = 100;
+        health = 10;
         Time.timeScale = 1;
         lost.gameObject.SetActive(false);
+
+        // Health UI by ariel oliveira
+            heartContainers = new GameObject[(int)maxHealth];
+            heartFills = new Image[(int)maxHealth];
+
+            onHealthChangedCallback += UpdateHeartsHUD;
+            InstantiateHeartContainers();
+            UpdateHeartsHUD();
+        // End of Health UI
     }
 
     // Update is called once per frame
@@ -45,11 +63,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     IEnumerator LavaDamage(){
-        while (health > 0)
-        {
+        while (health > 0){
             Debug.Log("Entered Lava");
-            health -= 10f;
+            health -= 0.5f;
             animator.SetTrigger("Hurt");
+            ClampHealth();
             yield return new WaitForSeconds(1f);
         }
     }
@@ -65,5 +83,66 @@ public class PlayerHealth : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
+    
+    // Health UI by ariel oliveira
+    public void UpdateHeartsHUD()
+    {
+        SetHeartContainers();
+        SetFilledHearts();
+    }
 
+    void SetHeartContainers()
+    {
+        Debug.Log(heartContainers.Length);
+        for (int i = 0; i < heartContainers.Length; i++)
+        {
+            if (i < maxHealth)
+            {
+                heartContainers[i].SetActive(true);
+            }
+            else
+            {
+                heartContainers[i].SetActive(false);
+            }
+        }
+    }
+
+    void SetFilledHearts()
+    {
+        for (int i = 0; i < heartFills.Length; i++)
+        {
+            if (i < health)
+            {
+                heartFills[i].fillAmount = 1;
+            }
+            else
+            {
+                heartFills[i].fillAmount = 0;
+            }
+        }
+
+        if (health % 1 != 0)
+        {
+            int lastPos = Mathf.FloorToInt(health);
+            heartFills[lastPos].fillAmount = health % 1;
+        }
+    }
+    void InstantiateHeartContainers()
+    {
+        for (int i = 0; i < maxHealth; i++)
+        {
+            GameObject temp = Instantiate(heartContainerPrefab);
+            temp.transform.SetParent(heartsParent, false);
+            heartContainers[i] = temp;
+            heartFills[i] = temp.transform.Find("HeartFill").GetComponent<Image>();
+        }
+    }
+    void ClampHealth()
+    {
+        health = Mathf.Clamp(health, 0, maxHealth);
+
+        if (onHealthChangedCallback != null)
+            onHealthChangedCallback.Invoke();
+    }
+    // End of Health UI
 }

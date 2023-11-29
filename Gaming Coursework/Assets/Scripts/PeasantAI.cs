@@ -31,7 +31,7 @@ public class PeasantAI : MonoBehaviour
         if(collision.tag == "Lava"){
             damageRoutine = StartCoroutine(LavaDamage());
         }
-        if(collision.tag == "Player"){
+        if(collision.tag == "Sword"){
             Debug.Log("Dealt dmg!");
             TakeDamage(5f);
         }

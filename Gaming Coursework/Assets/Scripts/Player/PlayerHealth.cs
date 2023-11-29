@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
 	public float health;
     Coroutine damageRoutine = null;
+    Coroutine deathRoutine = null;
     public Animator animator;
 
     public GameObject lost;
@@ -24,8 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (health == 0){
         	Debug.Log("You Lost!");
-            Time.timeScale = 0;
-            lost.gameObject.SetActive(true);
+            deathRoutine = StartCoroutine(Death());
             if (Input.GetKey("space"))
             {       
                 Restart();
@@ -53,7 +53,15 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+    IEnumerator Death(){
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 0;
+        lost.gameObject.SetActive(true);
+    }
+
     public void Restart(){
+        StopCoroutine(deathRoutine);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

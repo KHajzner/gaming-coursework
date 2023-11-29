@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40ffbe4dfd53861daa6cb87883f596e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 89108325}
 --- !u!1 &293978057
 GameObject:
   m_ObjectHideFlags: 0
@@ -7864,7 +7864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 821650488}
-  delay: 5
+  delay: 25
 --- !u!1 &879468127
 GameObject:
   m_ObjectHideFlags: 0
@@ -8372,7 +8372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 879468130}
-  delay: 5
+  delay: 25
 --- !u!1 &1034906907
 GameObject:
   m_ObjectHideFlags: 0
@@ -8541,6 +8541,7 @@ MonoBehaviour:
   distanceBetween: 5
   health: 0
   animator: {fileID: 1034906913}
+  playerAnimator: {fileID: 89108325}
 --- !u!95 &1034906913
 Animator:
   serializedVersion: 5
@@ -10970,7 +10971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 1703135662}
-  delay: 15
+  delay: 60
 --- !u!1 &1788940095
 GameObject:
   m_ObjectHideFlags: 0
@@ -12136,7 +12137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 1926523469}
-  delay: 15
+  delay: 60
 --- !u!1 &2042684937
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PeasantSpawning : MonoBehaviour
+public class EnemySpawning : MonoBehaviour
 {
     public Rigidbody2D peasant;
     public Tilemap spawnArea;

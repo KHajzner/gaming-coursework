@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health == 0){
+        if (health <= 0){
         	Debug.Log("You Lost!");
             deathRoutine = StartCoroutine(Death());
             if (Input.GetKey("space"))
@@ -53,24 +53,25 @@ public class PlayerHealth : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "Lava"){
-            damageRoutine = StartCoroutine(LavaDamage());
+            damageRoutine = StartCoroutine(RoutineDamage(1f));
         }
     }
     void OnTriggerExit2D(Collider2D collision){
         if(collision.tag == "Lava"){
-            Debug.Log("uwu");
             StopCoroutine(damageRoutine);
         }
     }
-    IEnumerator LavaDamage(){
-        while (health > 0){
-            Debug.Log("Entered Lava");
-            health -= 0.5f;
-            animator.SetTrigger("Hurt");
+    public void Damage(float damageTaken){
+            health -= damageTaken;
+            ClampHealth();
+    }
+
+    IEnumerator RoutineDamage(float damageTaken){
+            health -= damageTaken;
             ClampHealth();
             yield return new WaitForSeconds(1f);
-        }
     }
+
     IEnumerator Death(){
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(1f);
@@ -93,7 +94,6 @@ public class PlayerHealth : MonoBehaviour
 
     void SetHeartContainers()
     {
-        Debug.Log(heartContainers.Length);
         for (int i = 0; i < heartContainers.Length; i++)
         {
             if (i < maxHealth)

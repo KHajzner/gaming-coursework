@@ -7,11 +7,19 @@ public class PeasantAI : MonoBehaviour
     public Rigidbody2D player;
     public Rigidbody2D peasant;
     public float speed;
-    public float distanceBetween = 3f;
+    float distanceBetween;
+    float hittingDistance = 1f;
+    float viewingDistance = 3.5f;
+    bool near = false;
+    int attackNum;
 	public float health;
     public Animator animator;
     Coroutine damageRoutine = null;
     Coroutine flashRedRoutine = null;
+    Coroutine chooseAttack = null;
+
+    bool facesRight = true;
+    bool startedAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +29,27 @@ public class PeasantAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health == 0){
+        if (health <= 0){
             speed = 0;
-            StartCoroutine(Death());
         }
+    }
+    void FixedUpdate()
+    {
+        distanceBetween = Vector2.Distance(player.transform.position, peasant.position);
+        if(hittingDistance >= distanceBetween && !startedAttacking){
+            Debug.Log("I'm withing hitting distance");
+            startedAttacking = true;
+            chooseAttack = StartCoroutine(ChooseAttack());
+        }
+        if (distanceBetween < viewingDistance){
+            peasant.position = Vector2.MoveTowards(peasant.position, player.position, speed * Time.deltaTime);
+            animator.SetBool("Moving", true);
+        }
+        else{
+            animator.SetBool("Moving", false);
+        }
+        SwitchRotation();
+
     }
     
     void OnTriggerEnter2D(Collider2D collision){
@@ -32,7 +57,6 @@ public class PeasantAI : MonoBehaviour
             damageRoutine = StartCoroutine(LavaDamage());
         }
         if(collision.tag == "Sword"){
-            Debug.Log("Dealt dmg!");
             TakeDamage(5f);
         }
     }
@@ -43,21 +67,20 @@ public class PeasantAI : MonoBehaviour
             GetComponent<SpriteRenderer> ().color = Color.white;   
         }
     }
-    void FixedUpdate()
-    {
-        if (Vector2.Distance(player.transform.position, peasant.position) < distanceBetween){
-            peasant.position = Vector2.MoveTowards(peasant.position, player.position, speed * Time.deltaTime);
-            animator.SetBool("Moving", true);
-        }
-        else{
-            animator.SetBool("Moving", false);
-        }
-    }
 
     public void TakeDamage(float damage){
         health -= damage;
         animator.SetTrigger("Hurt");
         flashRedRoutine = StartCoroutine(FlashRed());
+    }
+
+    IEnumerator ChooseAttack(){
+        attackNum = Random.Range(1,4);
+        Debug.Log("Attacking with" + attackNum);
+        animator.SetInteger("Attack", attackNum);
+        animator.SetTrigger("Attacking");
+        yield return new WaitForSeconds(1f);
+        startedAttacking = false;
     }
 
     IEnumerator LavaDamage(){
@@ -82,5 +105,15 @@ public class PeasantAI : MonoBehaviour
         speed = 2;
         GetComponent<SpriteRenderer> ().color = Color.white;     
         yield return new WaitForSeconds(0.3f); 
+    }
+    void SwitchRotation(){
+        Debug.Log(player.position.x);
+        Debug.Log(peasant.position.x);
+        if ((player.position.x < peasant.position.x && facesRight) || (player.position.x > peasant.position.x  && !facesRight)){
+            facesRight = !facesRight;
+            Vector3 face = transform.localScale;
+            face.x *= -1;
+            transform.localScale = face;
+        }
     }
 }

@@ -7,6 +7,7 @@ public class UniversalBehaviour : MonoBehaviour
     public float health;
     public float armour = 1f;
     public float speed;
+    bool startedDying = false;
 
     //Entities
     public Rigidbody2D player;
@@ -19,6 +20,10 @@ public class UniversalBehaviour : MonoBehaviour
     //Animations
     public Animator animator;
     bool facesRight = true;
+
+    //UI
+    public int enemyOnSpawn;
+    public EnemyCounter enemyCounter;
    void Start()
     {
         health = 100;
@@ -26,8 +31,11 @@ public class UniversalBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0){
+        if (health <= 0 && !startedDying){
+            startedDying = true;
             speed = 0;
+            enemyCounter.killedEnemies += 1;
+            enemyCounter.UpdateCounter();
             StartCoroutine(Death());
         }
     }
@@ -71,7 +79,7 @@ public class UniversalBehaviour : MonoBehaviour
     IEnumerator Death(){
         animator.ResetTrigger("Hurt");
         animator.SetTrigger("Dead");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
     	Destroy(gameObject);
     }
     

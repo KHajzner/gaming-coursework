@@ -57,6 +57,9 @@ TagManager:
   - name: Background
     uniqueID: 1313428857
     locked: 0
+  - name: Lava
+    uniqueID: 2598468125
+    locked: 0
   - name: Entities
     uniqueID: 514016533
     locked: 0

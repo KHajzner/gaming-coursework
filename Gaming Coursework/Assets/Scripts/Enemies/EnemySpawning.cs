@@ -5,12 +5,9 @@ using UnityEngine.Tilemaps;
 
 public class EnemySpawning : MonoBehaviour
 {
-    public Rigidbody2D peasant;
-    public Rigidbody2D knight;
+    public UniversalBehaviour UB;
     public Tilemap spawnArea;
     public List<Vector3> freeSpots;
-    public float peasantsOnSpawn;
-    public float knightsOnSpawn;
     private Vector3 chosenSpot;
 
     void Start()
@@ -29,16 +26,10 @@ public class EnemySpawning : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < peasantsOnSpawn; i++)
+        for (int i = 0; i < UB.enemyOnSpawn; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
-            Instantiate(peasant,chosenSpot,Quaternion.identity);
-            freeSpots.Remove(chosenSpot);
-        }
-        for (int i = 0; i < knightsOnSpawn; i++)
-        {
-            chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
-            Instantiate(knight,chosenSpot,Quaternion.identity);
+            Instantiate(UB.enemy,chosenSpot,Quaternion.identity);
             freeSpots.Remove(chosenSpot);
         }
     }

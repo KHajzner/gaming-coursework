@@ -8,7 +8,7 @@ public class SmallLava : MonoBehaviour
     public Tilemap spawnArea;
     public Tilemap lavaArea;
     public Vector3 offset;
-    void Awake()
+    void Start()
     {
         transform.position = offset;
         for (int n = lavaArea.cellBounds.xMin; n < lavaArea.cellBounds.xMax; n++)

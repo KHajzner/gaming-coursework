@@ -34,9 +34,9 @@ public class UniversalBehaviour : MonoBehaviour
         if (health <= 0 && !startedDying){
             startedDying = true;
             speed = 0;
-            enemyCounter.killedEnemies += 1;
-            enemyCounter.UpdateCounter();
             StartCoroutine(Death());
+            enemyCounter.UpdateCounter();
+            
         }
     }
     void FixedUpdate(){
@@ -81,6 +81,7 @@ public class UniversalBehaviour : MonoBehaviour
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(0.5f);
     	Destroy(gameObject);
+        startedDying = false;
     }
     
     void SwitchRotation(){

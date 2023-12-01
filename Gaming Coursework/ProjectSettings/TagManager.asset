@@ -13,6 +13,7 @@ TagManager:
   - Sheep
   - Lava
   - Sword
+  - Enemy
   layers:
   - Default
   - TransparentFX

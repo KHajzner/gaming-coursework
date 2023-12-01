@@ -9,13 +9,14 @@ public class Lava : MonoBehaviour
     public Tilemap lavaArea;
     public float delay;
     float delayBetween = 0.5f;
+    public Vector3 offset;
     void Start()
     {
         Collider2D col = GetComponent<Collider2D>();
         if (col != null){
              col.enabled = false;
         }
-        StartCoroutine(MoveLava(20, delay));
+        StartCoroutine(MoveLava(delay));
     }
     void Update()
     {
@@ -33,16 +34,16 @@ public class Lava : MonoBehaviour
             }
         }
     }
-    IEnumerator MoveLava(float moveBy, float delay)
+    IEnumerator MoveLava(float delay)
     {
         yield return new WaitForSeconds(delay);
-        transform.position = new Vector3(moveBy, 0, 0);
+        transform.position = offset;
         for (int i = 0; i<3; i++)
         {
             yield return new WaitForSeconds(delayBetween);
             transform.position = new Vector3(0, 0, 0);
             yield return new WaitForSeconds(delayBetween);
-            transform.position = new Vector3(moveBy, 0, 0);
+            transform.position = offset;
         }
         
         for (int n = lavaArea.cellBounds.xMin; n < lavaArea.cellBounds.xMax; n++)

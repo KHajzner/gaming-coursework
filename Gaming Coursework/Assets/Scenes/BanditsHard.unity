@@ -6835,7 +6835,7 @@ MonoBehaviour:
   peasant: {fileID: 1034906910}
   spawnArea: {fileID: 349275717}
   freeSpots: []
-  enemyOnStart: 1
+  enemyOnStart: 3
 --- !u!1 &409836279
 GameObject:
   m_ObjectHideFlags: 0
@@ -7502,6 +7502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 544332057}
+  offset: {x: 20, y: 0, z: 0}
 --- !u!1 &689093011
 GameObject:
   m_ObjectHideFlags: 0
@@ -8165,6 +8166,7 @@ MonoBehaviour:
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 821650488}
   delay: 25
+  offset: {x: 20, y: 0, z: 0}
 --- !u!1 &879468127
 GameObject:
   m_ObjectHideFlags: 0
@@ -8673,6 +8675,7 @@ MonoBehaviour:
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 879468130}
   delay: 25
+  offset: {x: 20, y: 0, z: 0}
 --- !u!1 &1034906907
 GameObject:
   m_ObjectHideFlags: 0
@@ -11594,6 +11597,7 @@ MonoBehaviour:
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 1703135662}
   delay: 60
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1788940095
 GameObject:
   m_ObjectHideFlags: 0
@@ -11950,6 +11954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 1788940099}
+  offset: {x: 20, y: 0, z: 0}
 --- !u!1 &1808257935
 GameObject:
   m_ObjectHideFlags: 0
@@ -12760,6 +12765,7 @@ MonoBehaviour:
   spawnArea: {fileID: 349275717}
   lavaArea: {fileID: 1926523469}
   delay: 60
+  offset: {x: 20, y: 0, z: 0}
 --- !u!1 &1931107327
 GameObject:
   m_ObjectHideFlags: 0

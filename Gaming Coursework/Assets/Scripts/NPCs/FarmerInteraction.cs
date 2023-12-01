@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class Farmer : MonoBehaviour
+public class FarmerInteraction : MonoBehaviour
 {
     public GameObject introduction;
     public GameObject interact;
 
-    public GameObject acceptMsg;
+    public GameObject afterClick;
     public GameObject arrow;
     public GameObject nextScene;
+    public NextScene nextSceneName;
+
+    public TMP_Text farmerChat;
+    public TMP_Text nextArea;
     bool canInteract = false;
     bool hasInteracted = false;
     // Start is called before the first frame update
@@ -17,7 +22,7 @@ public class Farmer : MonoBehaviour
     {
         introduction.gameObject.SetActive(false);
         interact.gameObject.SetActive(false);
-        acceptMsg.gameObject.SetActive(false);
+        afterClick.gameObject.SetActive(false);
         arrow.gameObject.SetActive(false);
         nextScene.gameObject.SetActive(false);
     }
@@ -45,10 +50,18 @@ public class Farmer : MonoBehaviour
        }
     }
 
-    public void Accept(){
+    public void AfterClick(){
         introduction.gameObject.SetActive(false);
-        acceptMsg.gameObject.SetActive(true);
+        afterClick.gameObject.SetActive(true);
         arrow.gameObject.SetActive(true);
         nextScene.gameObject.SetActive(true);
+    }
+    public void Accept(){
+        nextSceneName.nextSceneName="Maze";
+    }
+    public void Deny(){
+        nextArea.SetText("Continue");
+        farmerChat.SetText("That's a shame. Best of luck!");
+        nextSceneName.nextSceneName="BanditsHard";
     }
 }

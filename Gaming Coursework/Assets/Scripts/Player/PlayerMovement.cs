@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     Vector2 standardVector;
     public bool up = true;
 
+    void Start(){
+        Time.timeScale = 1;
+    }
     void Update()
     {   
         direction.x = Input.GetAxisRaw("Horizontal");

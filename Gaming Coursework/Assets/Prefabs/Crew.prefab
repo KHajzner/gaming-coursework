@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4066986190413390592}
   - component: {fileID: 3199813802205781591}
   - component: {fileID: 2099574346461238649}
+  - component: {fileID: 8155491921196282261}
   - component: {fileID: 1220900856523528755}
   m_Layer: 11
   m_Name: Crew
@@ -165,7 +166,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 3136
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -185,6 +186,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.026212428, y: 0.7714498}
   m_Size: {x: 0.55460536, y: 0.8755599}
   m_Direction: 0
+--- !u!95 &8155491921196282261
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531992162160880959}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: b810f2280bb2a6b4cbf996716e6e3d55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1220900856523528755
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {    
-    public string nextScene;
+    public string nextSceneName;
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.tag == "NextScene"){
-            Next(nextScene);
+            Next(nextSceneName);
         }
     }
     public void Next(string name)

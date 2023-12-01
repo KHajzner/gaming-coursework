@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeasantAI : MonoBehaviour
+public class KnightAI : MonoBehaviour
 {
     public UniversalBehaviour UB;
     float distanceBetween;
     float hittingDistance = 1.5f;
-    float viewingDistance = 3.5f;
+    float waitTime;
     int attackNum;
     float probability;
     public Animator animator;
@@ -21,33 +21,21 @@ public class PeasantAI : MonoBehaviour
             startedAttacking = true;
             chooseAttack = StartCoroutine(ChooseAttack());
         }
-        if (distanceBetween < viewingDistance){
-            UB.enemy.position = Vector2.MoveTowards(UB.enemy.position, UB.player.position, UB.speed * Time.deltaTime);
-            animator.SetBool("Moving", true);
-        }
-        else{
-            animator.SetBool("Moving", false);
-        }
     }
-    
     IEnumerator ChooseAttack(){
         probability = Random.Range(0.0f, 1.0f);
         Debug.Log(probability);
-        if (0.00 < probability && probability <= 0.40){
+        if (0.00 < probability && probability <= 0.44){
             attackNum=1;
-        }
-        else if(0.41 < probability && probability <= 0.50){
-            attackNum=2;
-        }
-        else if(0.51 < probability && probability <= 0.95){
-            attackNum=3;
+            waitTime=2f;
         }
         else{
-            attackNum=4;
+            attackNum=2;
+            waitTime=1f; 
         }
         animator.SetInteger("Attack", attackNum);
         animator.SetTrigger("Attacking");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(waitTime);
         startedAttacking = false;
     }
 }

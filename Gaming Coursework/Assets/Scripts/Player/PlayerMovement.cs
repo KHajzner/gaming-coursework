@@ -13,11 +13,17 @@ public class PlayerMovement : MonoBehaviour
     bool verctical;
     Vector2 direction;
     Vector2 standardVector;
+    public bool up = true;
 
     void Update()
     {   
         direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
+        if (up){
+            direction.y = Input.GetAxisRaw("Vertical");
+        }
+        else{
+            direction.y = 0;
+        }
         animator.SetBool("Moving", (direction.x != 0 || direction.y != 0));
     }
 

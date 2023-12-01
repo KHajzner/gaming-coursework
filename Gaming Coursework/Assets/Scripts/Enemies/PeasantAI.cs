@@ -10,8 +10,8 @@ public class PeasantAI : MonoBehaviour
     float distanceBetween;
     float hittingDistance = 1f;
     float viewingDistance = 3.5f;
-    bool near = false;
     int attackNum;
+    float probability;
 	public float health;
     public Animator animator;
     Coroutine damageRoutine = null;
@@ -31,13 +31,13 @@ public class PeasantAI : MonoBehaviour
     {
         if (health <= 0){
             speed = 0;
+            StartCoroutine(Death());
         }
     }
     void FixedUpdate()
     {
         distanceBetween = Vector2.Distance(player.transform.position, peasant.position);
         if(hittingDistance >= distanceBetween && !startedAttacking){
-            Debug.Log("I'm withing hitting distance");
             startedAttacking = true;
             chooseAttack = StartCoroutine(ChooseAttack());
         }
@@ -75,11 +75,24 @@ public class PeasantAI : MonoBehaviour
     }
 
     IEnumerator ChooseAttack(){
-        attackNum = Random.Range(1,4);
+        probability = Random.Range(0.0f, 1.0f);
+        Debug.Log(probability);
+        if (0.00 < probability && probability <= 0.40){
+            attackNum=1;
+        }
+        else if(0.41 < probability && probability <= 0.50){
+            attackNum=2;
+        }
+        else if(0.51 < probability && probability <= 0.95){
+            attackNum=3;
+        }
+        else{
+            attackNum=4;
+        }
         Debug.Log("Attacking with" + attackNum);
         animator.SetInteger("Attack", attackNum);
         animator.SetTrigger("Attacking");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         startedAttacking = false;
     }
 
@@ -107,8 +120,6 @@ public class PeasantAI : MonoBehaviour
         yield return new WaitForSeconds(0.3f); 
     }
     void SwitchRotation(){
-        Debug.Log(player.position.x);
-        Debug.Log(peasant.position.x);
         if ((player.position.x < peasant.position.x && facesRight) || (player.position.x > peasant.position.x  && !facesRight)){
             facesRight = !facesRight;
             Vector3 face = transform.localScale;

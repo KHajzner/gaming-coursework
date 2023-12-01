@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 89108321}
   - component: {fileID: 89108320}
   - component: {fileID: 89108322}
+  - component: {fileID: 89108328}
   - component: {fileID: 89108323}
   - component: {fileID: 89108325}
   - component: {fileID: 89108324}
@@ -225,9 +226,9 @@ Rigidbody2D:
   m_GameObject: {fileID: 89108318}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.43817687
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -254,7 +255,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -271,11 +272,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.019743621, y: 0.63717926}
-  m_Size: {x: 0.5579475, y: 1.2743585}
+  m_Offset: {x: 0.031614363, y: 0.7323955}
+  m_Size: {x: 0.6386684, y: 1.083926}
   m_Direction: 0
 --- !u!114 &89108324
 MonoBehaviour:
@@ -343,6 +344,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 89108325}
+--- !u!70 &89108328
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89108318}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 1536
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.019743621, y: 0.79174924}
+  m_Size: {x: 0.5579475, y: 0.84492874}
+  m_Direction: 0
 --- !u!1 &293978057
 GameObject:
   m_ObjectHideFlags: 0
@@ -7523,7 +7559,7 @@ GameObject:
   - component: {fileID: 724123301}
   - component: {fileID: 724123302}
   - component: {fileID: 724123303}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Weapon3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7622,7 +7658,7 @@ GameObject:
   - component: {fileID: 744069442}
   - component: {fileID: 744069443}
   - component: {fileID: 744069444}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Weapon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8652,7 +8688,7 @@ GameObject:
   - component: {fileID: 1034906911}
   - component: {fileID: 1034906912}
   - component: {fileID: 1034906913}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Peasant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8740,7 +8776,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1034906907}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDrag: 0
@@ -8789,8 +8825,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0036734075, y: -0.015613221}
-  m_Size: {x: 0.21789008, y: 0.37769446}
+  m_Offset: {x: -0.0036734075, y: 0.0007668153}
+  m_Size: {x: 0.21789008, y: 0.3449344}
   m_Direction: 0
 --- !u!114 &1034906912
 MonoBehaviour:
@@ -8862,8 +8898,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.006534492, y: -0.022870414}
-  m_Size: {x: 0.16698432, y: 0.34014404}
+  m_Offset: {x: -0.006650892, y: 0.035015937}
+  m_Size: {x: 0.12556577, y: 0.2585663}
   m_Direction: 0
 --- !u!1 &1185757272
 GameObject:
@@ -10689,7 +10725,7 @@ GameObject:
   - component: {fileID: 1228252475}
   - component: {fileID: 1228252476}
   - component: {fileID: 1228252477}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Weapon4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10883,7 +10919,7 @@ GameObject:
   - component: {fileID: 1376632148}
   - component: {fileID: 1376632150}
   - component: {fileID: 1376632151}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Weapon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

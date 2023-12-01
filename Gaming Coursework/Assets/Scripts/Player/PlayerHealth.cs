@@ -63,13 +63,18 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Damage(float damageTaken){
             health -= damageTaken;
+            animator.SetTrigger("Hurt");
             ClampHealth();
+            
     }
 
     IEnumerator RoutineDamage(float damageTaken){
+        while(health >= 0){
             health -= damageTaken;
             ClampHealth();
+            animator.SetTrigger("Hurt");
             yield return new WaitForSeconds(1f);
+        }
     }
 
     IEnumerator Death(){

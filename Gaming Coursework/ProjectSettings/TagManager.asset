@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - Crew
   - Farmer
+  - NextScene
   layers:
   - Default
   - TransparentFX

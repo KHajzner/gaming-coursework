@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class LavaBehaviour : MonoBehaviour
 {
-    public Tilemap smallPool, spawnArea, middlePool, bigPool, obstacleArea;
+    public Tilemap smallPool, spawnArea, middlePool, bigPool, movableArea;
     public float middleDelay, bigDelay;
     public TileBase tileBase;
     float delayBetween = 0.5f;
@@ -33,8 +33,8 @@ public class LavaBehaviour : MonoBehaviour
     void addObstacles(Tilemap lavaPool){
         foreach (var position in lavaPool.cellBounds.allPositionsWithin){
             if(lavaPool.HasTile(position)){
-                Vector3Int obstacleAreaPosition = new Vector3Int(position.x, position.y, 0);
-                obstacleArea.SetTile(obstacleAreaPosition, tileBase);
+                Vector3Int movableAreaPosition = new Vector3Int(position.x, position.y, 0);
+                movableArea.SetTile(movableAreaPosition, tileBase);
             }
         }
     }

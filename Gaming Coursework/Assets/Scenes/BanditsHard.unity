@@ -177,7 +177,7 @@ MonoBehaviour:
   movableArea: {fileID: 1776614480}
   middleDelay: 10
   bigDelay: 20
-  tileBase: {fileID: 11400000, guid: 002b8af668ed2574b8df5067db8f7dd8, type: 2}
+  tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!19719996 &65719729
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -5372,7 +5372,7 @@ MonoBehaviour:
   movableArea: {fileID: 1776614480}
   middleDelay: 10
   bigDelay: 20
-  tileBase: {fileID: 11400000, guid: 5904bf0d3cd9eb342ba31c0030e43083, type: 2}
+  tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!483693784 &1132084608
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -19427,8 +19427,8 @@ MonoBehaviour:
   - tile: {fileID: 11400000, guid: 5904bf0d3cd9eb342ba31c0030e43083, type: 2}
     movable: 1
     movementCost: 1
-  - tile: {fileID: 11400000, guid: 002b8af668ed2574b8df5067db8f7dd8, type: 2}
-    movable: 1
+  - tile: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
+    movable: 0
     movementCost: 30
   path: []
   stepTime: 0.574

@@ -70,10 +70,14 @@ public class MoveOnTilemap : MonoBehaviour
             var target = tilemap.WorldToCell(UB.player.transform.position);
             target.z = 0;
             pathfinder.GenerateAstarPath(currentCellPos, target, out path);
-            StartCoroutine(Move());
-        }
 
-        
+            if(path.Count == 0){
+                StopAllCoroutines();
+            }
+            else{
+                StartCoroutine(Move());
+            }
+        }
     }
 
     IEnumerator Move()
@@ -84,7 +88,6 @@ public class MoveOnTilemap : MonoBehaviour
             transform.position = tilemap.CellToWorld(path[0]);
             path.RemoveAt(0);
             yield return new WaitForSeconds(stepTime);
-            
         }
         startedMoving = false;
     }

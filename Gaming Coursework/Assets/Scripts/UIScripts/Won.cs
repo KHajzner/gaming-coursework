@@ -16,10 +16,8 @@ public class Won : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Beaten" + enemiesBeaten);
         if(enemiesBeaten == enemiesToBeat)
         {
-            Debug.Log("beaten everyone :o");
             won.gameObject.SetActive(true);
             Time.timeScale = 0;
 

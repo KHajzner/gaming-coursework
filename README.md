@@ -7,3 +7,5 @@ and adapted slightly to fit my code
 
 - Pathfinding2D, Node2D and Grid2D are made using @pixelfac
 pixelfac's code from https://github.com/pixelfac/2D-Astar-Pathfinding-in-Unity/tree/master
+
+https://forum.unity.com/threads/tilemap-tile-positions-assistance.485867/

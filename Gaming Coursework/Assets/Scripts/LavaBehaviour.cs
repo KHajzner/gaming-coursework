@@ -5,12 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class LavaBehaviour : MonoBehaviour
 {
-    public Tilemap smallPool, spawnArea, middlePool, bigPool;
+    public Tilemap smallPool, spawnArea, middlePool, bigPool, obstacleArea;
     public float middleDelay, bigDelay;
+    public TileBase tileBase;
     float delayBetween = 0.5f;
     // Start is called before the first frame update
     void Awake(){
         removeSpawn(smallPool);
+        addObstacles(smallPool);
     }
     void Start()
     {
@@ -25,6 +27,14 @@ public class LavaBehaviour : MonoBehaviour
             if(lavaPool.HasTile(position)){
                 Vector3Int spawnAreaPosition = new Vector3Int(position.x, position.y, 0);
                 spawnArea.SetTile(spawnAreaPosition, null);
+            }
+        }
+    }
+    void addObstacles(Tilemap lavaPool){
+        foreach (var position in lavaPool.cellBounds.allPositionsWithin){
+            if(lavaPool.HasTile(position)){
+                Vector3Int obstacleAreaPosition = new Vector3Int(position.x, position.y, 0);
+                obstacleArea.SetTile(obstacleAreaPosition, tileBase);
             }
         }
     }
@@ -43,6 +53,7 @@ public class LavaBehaviour : MonoBehaviour
             lavaPool.gameObject.SetActive(true);
         }
         removeSpawn(lavaPool);
+        addObstacles(lavaPool);
         if(col != null){
             col.enabled = true;
         }

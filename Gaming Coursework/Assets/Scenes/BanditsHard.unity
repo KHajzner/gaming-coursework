@@ -19402,7 +19402,7 @@ MonoBehaviour:
     movable: 0
     movementCost: 30
   path: []
-  stepTime: 0.574
+  stepTime: 0.75
 --- !u!1 &2027176117
 GameObject:
   m_ObjectHideFlags: 0

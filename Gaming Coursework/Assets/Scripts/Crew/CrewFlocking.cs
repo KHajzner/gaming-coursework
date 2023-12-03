@@ -9,8 +9,12 @@ public class CrewFlocking : MonoBehaviour
     bool bounced = false;
     public Rigidbody2D crew;
     public Animator animator;
+    bool facesRight = false;
     Vector2 direction;
+
+    //Flocking algorithms
     public List<CrewFlocking> boidsInScene;
+    public List<UniversalBehaviour> enemiesInScene;
     public float moveToCenterStrength;//factor by which boid will try toward center Higher it is, higher the turn rate to move to the center
     public float localBoidsDistance;//effective distance to calculate the center
     public float avoidOtherStrength;//factor by which boid will try to avoid each other. Higher it is, higher the turn rate to avoid other.
@@ -23,15 +27,20 @@ public class CrewFlocking : MonoBehaviour
             var flocking = crew.GetComponent<CrewFlocking>();
             boidsInScene.Add(flocking);
         }
+        foreach(GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")){
+            var enemy = enemies.GetComponent<UniversalBehaviour>();
+            enemiesInScene.Add(enemy);
+        }
         animator.SetBool("Moving", true);
     }
     void Update(){
         AlignWithOthers();
         MoveToCenter();
-        AvoidOtherBoids();
+        AvoidEnemies();
         if(!bounced){
             transform.Translate(direction * (speed * Time.deltaTime));
         }
+        SwitchRotation(direction * speed * Time.fixedDeltaTime);
     }
 
     void OnCollisionEnter2D(Collision2D collision){
@@ -74,17 +83,17 @@ public class CrewFlocking : MonoBehaviour
         direction = direction.normalized;
     }
 
-    void AvoidOtherBoids(){
+    void AvoidEnemies(){
 
         Vector2 faceAwayDirection = Vector2.zero;//this is a vector that will hold direction away from near boid so we can steer to it to avoid the collision.
 
         //we need to iterate through all boid
-        foreach (CrewFlocking boid in boidsInScene){
-            float distance = Vector2.Distance(boid.transform.position, transform.position);
+        foreach (UniversalBehaviour enemy in enemiesInScene){
+            float distance = Vector2.Distance(enemy.transform.position, transform.position);
 
             //if the distance is within range calculate away vector from it and subtract from away direction.
             if (distance <= collisionAvoidCheckDistance){
-                faceAwayDirection =faceAwayDirection+ (Vector2)(transform.position - boid.transform.position);
+                faceAwayDirection = faceAwayDirection+ (Vector2)(transform.position - enemy.transform.position);
             }
         }
 
@@ -113,5 +122,14 @@ public class CrewFlocking : MonoBehaviour
         float deltaTimeStrength = alignWithOthersStrength * Time.deltaTime;
         direction=direction+deltaTimeStrength*directionAverage/(deltaTimeStrength+1);
         direction = direction.normalized;
+    }
+
+    void SwitchRotation(Vector2 direction){
+        if ((direction.x > 0 && !facesRight) || (direction.x < 0 && facesRight)){
+            facesRight = !facesRight;
+            Vector3 face = transform.localScale;
+            face.x *= -1;
+            transform.localScale = face;
+        }
     }
 }

@@ -64,8 +64,8 @@ public class MoveOnTilemap : MonoBehaviour
     void FixedUpdate()
     {
         distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);
-        if (distanceBetween < 7f){
-                            UB.animator.SetBool("Moving", true);
+        if (distanceBetween < 5f){
+            UB.animator.SetBool("Moving", true);
             if(!startedMoving){
                 var currentCellPos=tilemap.WorldToCell(transform.position);
                 var target = tilemap.WorldToCell(UB.player.transform.position);

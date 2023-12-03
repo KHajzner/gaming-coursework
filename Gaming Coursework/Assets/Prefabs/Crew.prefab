@@ -223,9 +223,10 @@ MonoBehaviour:
   crew: {fileID: 4066986190413390592}
   animator: {fileID: 8155491921196282261}
   boidsInScene: []
+  enemiesInScene: []
   moveToCenterStrength: 1
   localBoidsDistance: 4
-  avoidOtherStrength: 0
+  avoidOtherStrength: 2
   collisionAvoidCheckDistance: 4
-  alignWithOthersStrength: 0
+  alignWithOthersStrength: 1
   alignmentCheckDistance: 4

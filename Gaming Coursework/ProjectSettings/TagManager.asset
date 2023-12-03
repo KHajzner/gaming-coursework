@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Water
-  - Mud
   - MudVertical
   - MudHorizontal
   - Barn
@@ -17,6 +16,7 @@ TagManager:
   - Crew
   - Farmer
   - NextScene
+  - Obstacles
   layers:
   - Default
   - TransparentFX

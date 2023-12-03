@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3199813802205781591}
   - component: {fileID: 2099574346461238649}
   - component: {fileID: 8155491921196282261}
-  - component: {fileID: 1220900856523528755}
+  - component: {fileID: 1392940422999040276}
   m_Layer: 11
   m_Name: Crew
   m_TagString: Crew
@@ -115,7 +115,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3199813802205781591
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ Animator:
   m_GameObject: {fileID: 4531992162160880959}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: b810f2280bb2a6b4cbf996716e6e3d55, type: 2}
+  m_Controller: {fileID: 9100000, guid: bd4c1c2574441ee97a74c5f08fba39fa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -207,7 +207,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1220900856523528755
+--- !u!114 &1392940422999040276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,8 +216,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4531992162160880959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68f0d22c7a2554f0fa4c85e790661aea, type: 3}
+  m_Script: {fileID: 11500000, guid: 02c038338c4c08b2b81d63a3a058c27f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crewAmount: 4
+  speed: 1.5
   crew: {fileID: 4066986190413390592}
+  animator: {fileID: 8155491921196282261}
+  boidsInScene: []
+  moveToCenterStrength: 1
+  localBoidsDistance: 4
+  avoidOtherStrength: 0
+  collisionAvoidCheckDistance: 4
+  alignWithOthersStrength: 0
+  alignmentCheckDistance: 4

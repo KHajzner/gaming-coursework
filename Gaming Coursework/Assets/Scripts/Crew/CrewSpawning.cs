@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class CrewSpawning : MonoBehaviour
 {
-    public CrewAI crew;
+    public GameObject crewPrefab;
     public Tilemap spawnArea;
     public List<Vector3> freeSpots;
     private Vector3 chosenSpot;
@@ -26,10 +26,10 @@ public class CrewSpawning : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < crew.crewAmount; i++)
+        for (int i = 0; i < 5; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
-            Instantiate(crew.crew,chosenSpot,Quaternion.identity);
+            Instantiate(crewPrefab,chosenSpot,Quaternion.identity);
             freeSpots.Remove(chosenSpot);
         }
     }

@@ -175,8 +175,9 @@ MonoBehaviour:
   middlePool: {fileID: 209480155}
   bigPool: {fileID: 1687455896}
   movableArea: {fileID: 1776614480}
-  middleDelay: 10
-  bigDelay: 20
+  obstacles: {fileID: 338601893}
+  middleDelay: 45
+  bigDelay: 100
   tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!19719996 &65719729
 TilemapCollider2D:
@@ -2065,9 +2066,10 @@ GameObject:
   - component: {fileID: 338601891}
   - component: {fileID: 338601893}
   - component: {fileID: 338601892}
+  - component: {fileID: 338601894}
   m_Layer: 0
   m_Name: Obstacles
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2174,6 +2176,42 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &338601894
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338601890}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &369022627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4653,17 +4691,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 89108324}
   dmg: 0.4
---- !u!114 &554434071 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1220900856523528755, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-  m_PrefabInstance: {fileID: 1633344989}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68f0d22c7a2554f0fa4c85e790661aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &688464127
 GameObject:
   m_ObjectHideFlags: 0
@@ -5330,7 +5357,7 @@ GameObject:
   - component: {fileID: 1132084606}
   - component: {fileID: 1132084609}
   - component: {fileID: 1132084608}
-  - component: {fileID: 1132084607}
+  - component: {fileID: 1132084610}
   m_Layer: 9
   m_Name: SmallLavaBorder
   m_TagString: Lava
@@ -5353,26 +5380,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1220050538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1132084607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132084605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a7b796af3a25e7ea3dd10e68038374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smallPool: {fileID: 1132084609}
-  spawnArea: {fileID: 369022630}
-  middlePool: {fileID: 1867833683}
-  bigPool: {fileID: 166253628}
-  movableArea: {fileID: 1776614480}
-  middleDelay: 10
-  bigDelay: 20
-  tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!483693784 &1132084608
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -6068,6 +6075,27 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1132084610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132084605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a7b796af3a25e7ea3dd10e68038374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smallPool: {fileID: 1132084609}
+  spawnArea: {fileID: 369022630}
+  middlePool: {fileID: 1867833683}
+  bigPool: {fileID: 166253628}
+  movableArea: {fileID: 1776614480}
+  obstacles: {fileID: 338601893}
+  middleDelay: 45
+  bigDelay: 100
+  tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!1 &1154706326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6121,7 +6149,7 @@ GameObject:
   - component: {fileID: 1185757276}
   m_Layer: 7
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8528,63 +8556,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584891571}
   m_CullTransparentMesh: 1
---- !u!1001 &1633344989
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4531992162160880959, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_Name
-      value: Crew
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -42.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303654537520958407, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
 --- !u!1 &1687455892
 GameObject:
   m_ObjectHideFlags: 0
@@ -19324,8 +19295,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.046760924, y: -0.043978583}
-  m_Size: {x: 0.29799363, y: 0.5318695}
+  m_Offset: {x: -0.046760924, y: -0.17200278}
+  m_Size: {x: 0.29799363, y: 0.7879179}
   m_Direction: 0
 --- !u!50 &1931107332
 Rigidbody2D:
@@ -19478,7 +19449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb4921c74fce6395b747cfc1925c85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crew: {fileID: 554434071}
+  crewPrefab: {fileID: 4531992162160880959, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
   spawnArea: {fileID: 2027176121}
   freeSpots: []
 --- !u!483693784 &2027176120
@@ -20001,4 +19972,3 @@ SceneRoots:
   - {fileID: 1931107329}
   - {fileID: 409836283}
   - {fileID: 1386404028}
-  - {fileID: 1633344989}

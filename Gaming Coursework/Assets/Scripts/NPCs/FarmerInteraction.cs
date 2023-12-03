@@ -25,6 +25,16 @@ public class FarmerInteraction : MonoBehaviour
         afterClick.gameObject.SetActive(false);
         arrow.gameObject.SetActive(false);
         nextScene.gameObject.SetActive(false);
+        //TODO: THIS IS TEMP< REMOVE
+        int random = Random.Range(1,3);
+        Debug.Log(random);
+        if(random == 1){
+            GlobalVars.difficulty = "Easy";
+        }
+        else{
+            GlobalVars.difficulty = "Hard";
+        }
+        Debug.Log(GlobalVars.difficulty);
     }
 
     void FixedUpdate(){
@@ -57,7 +67,7 @@ public class FarmerInteraction : MonoBehaviour
         nextScene.gameObject.SetActive(true);
     }
     public void Accept(){
-        nextSceneName.nextSceneName="Maze";
+        nextSceneName.nextSceneName="Maze"+GlobalVars.difficulty;
     }
     public void Deny(){
         nextArea.SetText("Continue");

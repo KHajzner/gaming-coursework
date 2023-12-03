@@ -9,6 +9,7 @@ public class UniversalBehaviour : MonoBehaviour
     public float armour = 1f;
     public float speed;
     bool startedDying = false;
+    public string enemyType;
     
     //Entities
     public Rigidbody2D player;
@@ -26,9 +27,13 @@ public class UniversalBehaviour : MonoBehaviour
     public int enemyOnSpawn;
     public EnemyCounter enemyCounter;
     [SerializeField] FloatingHealthBar healthBar;
-
+    
+    void Awake(){
+        player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
+        enemyCounter = GameObject.Find(enemyType + "Counter").GetComponent<EnemyCounter>();
         health = maxHealth;
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(health, maxHealth);
@@ -68,7 +73,7 @@ public class UniversalBehaviour : MonoBehaviour
         while (health > 0)
         {
             health -= 10f;
-            healthBar.UpdateHealthBar(health, maxHealth);
+                    healthBar.UpdateHealthBar(health, maxHealth);
             animator.SetTrigger("Hurt");
             flashRedRoutine = StartCoroutine(FlashRed());
             yield return new WaitForSeconds(1f);

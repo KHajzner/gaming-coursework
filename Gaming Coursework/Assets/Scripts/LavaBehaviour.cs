@@ -6,11 +6,13 @@ using UnityEngine.Tilemaps;
 public class LavaBehaviour : MonoBehaviour
 {
     public Tilemap smallPool, spawnArea, middlePool, bigPool, movableArea, obstacles;
+    public Tilemap currentLava;
     public float middleDelay, bigDelay;
     public TileBase tileBase;
     float delayBetween = 0.5f;
     // Start is called before the first frame update
     void Awake(){
+        currentLava = smallPool;
         removeSpawn(smallPool);
         addObstacles(smallPool);
         changeMovableArea(smallPool);
@@ -48,9 +50,9 @@ public class LavaBehaviour : MonoBehaviour
         }
     }
     IEnumerator MoveLava(float delay, Tilemap lavaPool){
-        Collider2D col = lavaPool.GetComponent<Collider2D>();
-        if (col != null){
-             col.enabled = false;
+        Collider2D[] movingColliders = lavaPool.GetComponents<Collider2D>();
+        foreach(var collider in movingColliders){
+            collider.enabled = false;
         }
         yield return new WaitForSeconds(delay);
         lavaPool.gameObject.SetActive(true);
@@ -64,8 +66,15 @@ public class LavaBehaviour : MonoBehaviour
         removeSpawn(lavaPool);
         addObstacles(lavaPool);
         changeMovableArea(smallPool);
-        if(col != null){
-            col.enabled = true;
+        Debug.Log(currentLava);
+        Collider2D[] colliders = currentLava.GetComponents<Collider2D>();
+        foreach(var collider in colliders){
+            collider.enabled = false;
         }
+        Debug.Log(currentLava);
+        foreach(var collider in movingColliders){
+            collider.enabled = true;
+        }
+        currentLava = lavaPool;
     }
 }

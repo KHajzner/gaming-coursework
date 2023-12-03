@@ -13,7 +13,7 @@ public class KnightAI : MonoBehaviour
     public Animator animator;
     Coroutine chooseAttack = null;
     bool startedAttacking = false;
-
+    
     void FixedUpdate()
     {
         distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);

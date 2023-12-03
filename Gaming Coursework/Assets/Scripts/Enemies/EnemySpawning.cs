@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class EnemySpawning : MonoBehaviour
 {
-    public UniversalBehaviour UB;
+    public GameObject enemyPrefab;
     public Tilemap spawnArea;
     public List<Vector3> freeSpots;
     private Vector3 chosenSpot;
@@ -26,10 +26,10 @@ public class EnemySpawning : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < UB.enemyOnSpawn; i++)
+        for (int i = 0; i < enemyPrefab.GetComponent<UniversalBehaviour>().enemyOnSpawn; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
-            Instantiate(UB.enemy,chosenSpot,Quaternion.identity);
+            Instantiate(enemyPrefab,chosenSpot,Quaternion.identity);
             freeSpots.Remove(chosenSpot);
         }
     }

@@ -54,6 +54,9 @@ public class MoveOnTilemap : MonoBehaviour
         return result;
     }
 
+    void Awake(){
+        tilemap = GameObject.Find("MovableArea").GetComponent<Tilemap>();
+    }
     // Start is called before the first frame update
     void Start()
     {

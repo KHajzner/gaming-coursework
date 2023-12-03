@@ -74,6 +74,7 @@ public class MoveOnTilemap : MonoBehaviour
 
                 if(path.Count == 0){
                     StopAllCoroutines();
+                    startedMoving = false;
                     UB.animator.SetBool("Moving", false);
                 }
                 else{

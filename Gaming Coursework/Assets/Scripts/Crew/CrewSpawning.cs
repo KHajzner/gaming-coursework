@@ -9,9 +9,12 @@ public class CrewSpawning : MonoBehaviour
     public Tilemap spawnArea;
     public List<Vector3> freeSpots;
     private Vector3 chosenSpot;
+    int crewOnStart = 5;
+
 
     void Start()
     {
+        GlobalVars.crewOnBandit = crewOnStart;
         freeSpots = new List<Vector3>();
         for (int n = spawnArea.cellBounds.xMin; n < spawnArea.cellBounds.xMax; n++)
         {
@@ -26,7 +29,7 @@ public class CrewSpawning : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < crewOnStart; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
             Instantiate(crewPrefab,chosenSpot,Quaternion.identity);

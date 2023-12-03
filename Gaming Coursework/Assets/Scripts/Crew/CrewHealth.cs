@@ -25,6 +25,7 @@ public class CrewHealth : MonoBehaviour
         if (health <= 0 && !startedDying){
             startedDying = true;
             crewFlocking.speed = 0;
+            GlobalVars.crewOnBandit -= 1;
             StartCoroutine(Death());
         }
     }

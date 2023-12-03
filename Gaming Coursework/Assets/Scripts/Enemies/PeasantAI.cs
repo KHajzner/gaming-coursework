@@ -7,25 +7,44 @@ public class PeasantAI : MonoBehaviour
     public UniversalBehaviour UB;
     float distanceBetween;
     float hittingDistance = 1.5f;
-    float viewingDistance = 3.5f;
+    float viewingDistance = 4f;
     int attackNum;
     float probability;
     public Animator animator;
     Coroutine chooseAttack = null;
     bool startedAttacking = false;
+    bool attackCrew = false;
+    public LayerMask layerMask;
+    Collider2D[] nearCrew;
+    bool startedReset = false;
     void FixedUpdate()
-    {
-        distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);
-        if(hittingDistance >= distanceBetween && !startedAttacking){
-            startedAttacking = true;
-            chooseAttack = StartCoroutine(ChooseAttack());
+    {    
+        if(!startedReset){
+            startedReset = true;
+            Invoke("ResetScan", 4f);
         }
-        if (distanceBetween < viewingDistance){
-            UB.enemy.position = Vector2.MoveTowards(UB.enemy.position, UB.player.position, UB.speed * Time.deltaTime);
+        if(attackCrew){
+            if(!startedAttacking){
+                startedAttacking = true;
+                chooseAttack = StartCoroutine(ChooseAttack());
+            }
+            UB.enemy.position = Vector2.MoveTowards(UB.enemy.position, nearCrew[0].transform.position, UB.speed * Time.deltaTime);
             animator.SetBool("Moving", true);
         }
         else{
-            animator.SetBool("Moving", false);
+            distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);
+            if(hittingDistance >= distanceBetween && !startedAttacking){
+                startedAttacking = true;
+                chooseAttack = StartCoroutine(ChooseAttack());
+            }
+            if (distanceBetween < viewingDistance){
+                UB.enemy.position = Vector2.MoveTowards(UB.enemy.position, UB.player.position, UB.speed * Time.deltaTime);
+                animator.SetBool("Moving", true);
+            }
+            else{
+                animator.SetBool("Moving", false);
+            }
+
         }
     }
     
@@ -47,5 +66,24 @@ public class PeasantAI : MonoBehaviour
         animator.SetTrigger("Attacking");
         yield return new WaitForSeconds(2f);
         startedAttacking = false;
+    }
+    void ResetScan(){
+        Debug.Log("hallo");
+        float radius = 3f;
+        nearCrew = Physics2D.OverlapCircleAll(UB.enemy.position, radius, layerMask);
+        if(nearCrew.Length == 0){
+            attackCrew = false;
+        }
+        else{
+            int rnd = Random.Range(1, 3);
+            Debug.Log(rnd);
+            if (rnd == 1){
+                attackCrew = true;
+            }
+            else{
+                attackCrew = false;
+            }
+        }
+        startedReset = false;
     }
 }

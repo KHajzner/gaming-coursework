@@ -64,19 +64,25 @@ public class MoveOnTilemap : MonoBehaviour
     void FixedUpdate()
     {
         distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);
-        if (distanceBetween < 7f && !startedMoving)
-        {
-            var currentCellPos=tilemap.WorldToCell(transform.position);
-            var target = tilemap.WorldToCell(UB.player.transform.position);
-            target.z = 0;
-            pathfinder.GenerateAstarPath(currentCellPos, target, out path);
+        if (distanceBetween < 7f){
+                            UB.animator.SetBool("Moving", true);
+            if(!startedMoving){
+                var currentCellPos=tilemap.WorldToCell(transform.position);
+                var target = tilemap.WorldToCell(UB.player.transform.position);
+                target.z = 0;
+                pathfinder.GenerateAstarPath(currentCellPos, target, out path);
 
-            if(path.Count == 0){
-                StopAllCoroutines();
+                if(path.Count == 0){
+                    StopAllCoroutines();
+                    UB.animator.SetBool("Moving", false);
+                }
+                else{
+                    StartCoroutine(Move());
+                }
             }
-            else{
-                StartCoroutine(Move());
-            }
+        }
+        else{
+            UB.animator.SetBool("Moving", false);
         }
     }
 

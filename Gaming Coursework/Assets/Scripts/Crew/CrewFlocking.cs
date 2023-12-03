@@ -45,8 +45,7 @@ public class CrewFlocking : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.collider.tag == "Obstacles"){
-            float bounce = 50f;
-            crew.AddForce(collision.contacts[0].normal * bounce);
+            crew.AddForce(collision.contacts[0].normal * 50f);
             bounced = true;
             Invoke("RemoveBounce", 1f);
         }
@@ -90,7 +89,6 @@ public class CrewFlocking : MonoBehaviour
         //we need to iterate through all boid
         foreach (UniversalBehaviour enemy in enemiesInScene){
             float distance = Vector2.Distance(enemy.transform.position, transform.position);
-
             //if the distance is within range calculate away vector from it and subtract from away direction.
             if (distance <= collisionAvoidCheckDistance){
                 faceAwayDirection = faceAwayDirection+ (Vector2)(transform.position - enemy.transform.position);

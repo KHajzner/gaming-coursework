@@ -5,10 +5,11 @@ using UnityEngine;
 public class UniversalBehaviour : MonoBehaviour
 {
     public float health;
+    float maxHealth = 100;
     public float armour = 1f;
     public float speed;
     bool startedDying = false;
-
+    
     //Entities
     public Rigidbody2D player;
     public Rigidbody2D enemy;
@@ -24,9 +25,12 @@ public class UniversalBehaviour : MonoBehaviour
     //UI
     public int enemyOnSpawn;
     public EnemyCounter enemyCounter;
-   void Start()
+    [SerializeField] FloatingHealthBar healthBar;
+    void Start()
     {
-        health = 100;
+        health = maxHealth;
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
 
     void Update()
@@ -36,7 +40,6 @@ public class UniversalBehaviour : MonoBehaviour
             speed = 0;
             StartCoroutine(Death());
             enemyCounter.UpdateCounter();
-            
         }
     }
     void FixedUpdate(){
@@ -56,6 +59,7 @@ public class UniversalBehaviour : MonoBehaviour
     }
     public void TakeDamage(float damage){
         health -= (damage/armour);
+        healthBar.UpdateHealthBar(health, maxHealth);
         animator.SetTrigger("Hurt");
         flashRedRoutine = StartCoroutine(FlashRed());
     }

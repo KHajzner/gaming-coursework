@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8155491921196282261}
   - component: {fileID: 1392940422999040276}
   - component: {fileID: 7753304831259979831}
+  - component: {fileID: 3704521798188201026}
   m_Layer: 11
   m_Name: Crew
   m_TagString: Crew
@@ -249,6 +250,19 @@ MonoBehaviour:
   animator: {fileID: 8155491921196282261}
   healthBar: {fileID: 189561514458572652}
   crewFlocking: {fileID: 1392940422999040276}
+--- !u!114 &3704521798188201026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531992162160880959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b9fe7ac01017f933ae413f33d0cb432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8155491921196282261}
 --- !u!1 &5495675109595741839
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,9 +272,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6400677921682115014}
+  - component: {fileID: 5031062720442463574}
+  - component: {fileID: 5371689814971795795}
   m_Layer: 11
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,6 +296,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6303654537520958407}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &5031062720442463574
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495675109595741839}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.40067497, y: 1.396731}
+      - {x: 0.028720334, y: 1.4405432}
+      - {x: -0.5332409, y: 1.2833213}
+      - {x: -0.7254513, y: 0.9668815}
+      - {x: -0.31885275, y: 0.8036469}
+      - {x: 0.046388954, y: 1.050449}
+  m_UseDelaunayMesh: 0
+--- !u!114 &5371689814971795795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495675109595741839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1637b25048b051b9f5a1069c0852f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2808350728538564404
 PrefabInstance:
   m_ObjectHideFlags: 0

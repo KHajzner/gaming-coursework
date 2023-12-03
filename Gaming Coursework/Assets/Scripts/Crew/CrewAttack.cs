@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CrewAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Animator animator;
+    // Update is called once per frame
     void Start()
     {
-        
+        StartCoroutine(Attack());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    IEnumerator Attack(){
+        while(true){
+            var probability = Random.Range(0.0f, 1.0f);
+            if (probability <= 0.40){
+                animator.SetTrigger("Attack");
+            }
+            yield return new WaitForSeconds(3f);
+        }
     }
 }

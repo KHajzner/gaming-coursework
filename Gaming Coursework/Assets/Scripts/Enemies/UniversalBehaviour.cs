@@ -68,6 +68,7 @@ public class UniversalBehaviour : MonoBehaviour
         while (health > 0)
         {
             health -= 10f;
+            healthBar.UpdateHealthBar(health, maxHealth);
             animator.SetTrigger("Hurt");
             flashRedRoutine = StartCoroutine(FlashRed());
             yield return new WaitForSeconds(1f);

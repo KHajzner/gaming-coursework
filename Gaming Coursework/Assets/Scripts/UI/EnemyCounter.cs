@@ -12,16 +12,16 @@ public class EnemyCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EnemyCount.SetText(killedEnemies + "/" + UB.entityOnSpawn);
-        if(UB.entityOnSpawn == 0){
+        EnemyCount.SetText(killedEnemies + "/" + UB.enemyOnSpawn);
+        if(UB.enemyOnSpawn == 0){
             won.enemiesBeaten += 1;
         }
     }
     public void UpdateCounter(){
         killedEnemies += 1;
-        EnemyCount.SetText(killedEnemies + "/" + UB.entityOnSpawn);
+        EnemyCount.SetText(killedEnemies + "/" + UB.enemyOnSpawn);
 
-        if (killedEnemies == UB.entityOnSpawn){
+        if (killedEnemies == UB.enemyOnSpawn){
             won.enemiesBeaten += 1;
         }
     }

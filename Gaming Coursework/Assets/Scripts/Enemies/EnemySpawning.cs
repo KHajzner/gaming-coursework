@@ -26,10 +26,10 @@ public class EnemySpawning : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < UB.entityOnSpawn; i++)
+        for (int i = 0; i < UB.enemyOnSpawn; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
-            Instantiate(UB.entity,chosenSpot,Quaternion.identity);
+            Instantiate(UB.enemy,chosenSpot,Quaternion.identity);
             freeSpots.Remove(chosenSpot);
         }
     }

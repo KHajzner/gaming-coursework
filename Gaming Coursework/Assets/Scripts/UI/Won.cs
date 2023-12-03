@@ -9,6 +9,7 @@ public class Won : MonoBehaviour
     public TMP_Text winningText;
     public int enemiesBeaten = 0;
     int enemiesToBeat = 2;
+    public CrewSpawning crewSpawning;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +33,6 @@ public class Won : MonoBehaviour
         else{
             winningText.SetText("You've saved " + GlobalVars.crewOnBandit + " of your crew! Continue looking for the treasure!");
         }
+        GlobalVars.crewScore = GlobalVars.crewScore - (crewSpawning.crewOnStart - GlobalVars.crewOnBandit);
     }
 }

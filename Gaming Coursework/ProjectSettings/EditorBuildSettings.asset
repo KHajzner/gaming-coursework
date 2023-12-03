@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MazeEasy.unity
     guid: 4bd709f4e582b9c4c92d69bb6bc6cb70
+  - enabled: 1
+    path: Assets/Scenes/MazeHard.unity
+    guid: f84a7ba895576a56da20bfdedfa238b4
   m_configObjects: {}

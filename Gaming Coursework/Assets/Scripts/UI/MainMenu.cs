@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu, difficultyMenu;
+    bool menuOn = true;
     void Start(){
         difficultyMenu.gameObject.SetActive(false);
     }
-    public void ClickPlay(){
-        mainMenu.gameObject.SetActive(false);
-        difficultyMenu.gameObject.SetActive(true);
+    public void SwitchMenu(){
+        menuOn = !menuOn;
+        mainMenu.gameObject.SetActive(menuOn);
+        difficultyMenu.gameObject.SetActive(!menuOn);
     }
     public void Difficulty(string dif){
         GlobalVars.difficulty = dif;
         GlobalVars.crewScore = 20;
-        if(GlobalVars.difficulty == "Hard"){
+        if(GlobalVars.difficulty == "Easy"){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else{

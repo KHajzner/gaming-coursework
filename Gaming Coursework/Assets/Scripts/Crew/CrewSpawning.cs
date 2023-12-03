@@ -9,7 +9,7 @@ public class CrewSpawning : MonoBehaviour
     public Tilemap spawnArea;
     public List<Vector3> freeSpots;
     private Vector3 chosenSpot;
-    int crewOnStart = 5;
+    public int crewOnStart = 5;
 
 
     void Start()

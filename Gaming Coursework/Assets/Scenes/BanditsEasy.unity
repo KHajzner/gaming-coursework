@@ -11346,6 +11346,7 @@ MonoBehaviour:
   crewPrefab: {fileID: 4531992162160880959, guid: 3692b55144906a6919d14c6a8926e369, type: 3}
   spawnArea: {fileID: 998296395}
   freeSpots: []
+  crewOnStart: 5
 --- !u!483693784 &998296394
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -24171,6 +24172,7 @@ MonoBehaviour:
   won: {fileID: 1920409653}
   winningText: {fileID: 688464129}
   enemiesBeaten: 0
+  crewSpawning: {fileID: 998296393}
 --- !u!1 &1780861894
 GameObject:
   m_ObjectHideFlags: 0

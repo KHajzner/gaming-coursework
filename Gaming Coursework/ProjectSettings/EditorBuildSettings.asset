@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a92b515f03352e11d89028348daa6897
   - enabled: 1
+    path: Assets/Scenes/BanditsEasy.unity
+    guid: b0a1a131f792f4805851b4c899f06f40
+  - enabled: 1
     path: Assets/Scenes/BanditsHard.unity
     guid: 842770f02bc2c7da0b8a17a64f401157
   - enabled: 1

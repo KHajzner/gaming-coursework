@@ -27,14 +27,12 @@ public class FarmerInteraction : MonoBehaviour
         nextScene.gameObject.SetActive(false);
         //TODO: THIS IS TEMP< REMOVE
         int random = Random.Range(1,3);
-        Debug.Log(random);
         if(random == 1){
             GlobalVars.difficulty = "Easy";
         }
         else{
             GlobalVars.difficulty = "Hard";
         }
-        Debug.Log(GlobalVars.difficulty);
     }
 
     void FixedUpdate(){

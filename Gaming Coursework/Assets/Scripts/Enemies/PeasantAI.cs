@@ -68,7 +68,6 @@ public class PeasantAI : MonoBehaviour
         startedAttacking = false;
     }
     void ResetScan(){
-        Debug.Log("hallo");
         float radius = 3f;
         nearCrew = Physics2D.OverlapCircleAll(UB.enemy.position, radius, layerMask);
         if(nearCrew.Length == 0){
@@ -76,7 +75,6 @@ public class PeasantAI : MonoBehaviour
         }
         else{
             int rnd = Random.Range(1, 3);
-            Debug.Log(rnd);
             if (rnd == 1){
                 attackCrew = true;
             }

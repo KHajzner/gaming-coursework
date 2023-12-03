@@ -5,7 +5,7 @@ using UnityEngine;
 public class CrewHealth : MonoBehaviour
 {
     public float health;
-    float maxHealth = 15;
+    float maxHealth = 10;
     bool startedDying = false;
     public Animator animator;
     public FloatingHealthBar healthBar;

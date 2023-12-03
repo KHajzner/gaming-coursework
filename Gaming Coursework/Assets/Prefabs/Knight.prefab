@@ -544,7 +544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bbd42d3f28705e1939a02701da9d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
   dmg: 0.4
 --- !u!1 &6327525718480401097
 GameObject:
@@ -644,7 +643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bbd42d3f28705e1939a02701da9d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
   dmg: 0.7
 --- !u!1 &7129699504321530296
 GameObject:

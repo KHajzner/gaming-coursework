@@ -16,7 +16,6 @@ public class MainMenu : MonoBehaviour
     public void Difficulty(string dif){
         GlobalVars.difficulty = dif;
         GlobalVars.crewScore = 20;
-        Debug.Log(GlobalVars.difficulty);
         if(GlobalVars.difficulty == "Hard"){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

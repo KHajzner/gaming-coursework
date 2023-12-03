@@ -5695,8 +5695,8 @@ MonoBehaviour:
   movableArea: {fileID: 1776614480}
   obstacles: {fileID: 338601893}
   currentLava: {fileID: 0}
-  middleDelay: 5
-  bigDelay: 10
+  middleDelay: 30
+  bigDelay: 60
   tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!60 &1132084611
 PolygonCollider2D:

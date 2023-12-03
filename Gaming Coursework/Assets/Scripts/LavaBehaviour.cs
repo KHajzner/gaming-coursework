@@ -66,12 +66,10 @@ public class LavaBehaviour : MonoBehaviour
         removeSpawn(lavaPool);
         addObstacles(lavaPool);
         changeMovableArea(smallPool);
-        Debug.Log(currentLava);
         Collider2D[] colliders = currentLava.GetComponents<Collider2D>();
         foreach(var collider in colliders){
             collider.enabled = false;
         }
-        Debug.Log(currentLava);
         foreach(var collider in movingColliders){
             collider.enabled = true;
         }

@@ -26,6 +26,7 @@ public class UniversalBehaviour : MonoBehaviour
     public int enemyOnSpawn;
     public EnemyCounter enemyCounter;
     [SerializeField] FloatingHealthBar healthBar;
+
     void Start()
     {
         health = maxHealth;

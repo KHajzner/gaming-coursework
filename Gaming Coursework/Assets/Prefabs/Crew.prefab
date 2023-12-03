@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2099574346461238649}
   - component: {fileID: 8155491921196282261}
   - component: {fileID: 1392940422999040276}
-  - component: {fileID: 7795141405544209681}
+  - component: {fileID: 7753304831259979831}
   m_Layer: 11
   m_Name: Crew
   m_TagString: Crew
@@ -224,16 +224,15 @@ MonoBehaviour:
   speed: 1.5
   crew: {fileID: 4066986190413390592}
   animator: {fileID: 8155491921196282261}
-  direction: {x: 0, y: 0}
   boidsInScene: []
   enemiesInScene: []
   moveToCenterStrength: 1
   localBoidsDistance: 4
-  avoidOtherStrength: 2
-  collisionAvoidCheckDistance: 3
+  avoidOtherStrength: 3
+  collisionAvoidCheckDistance: 4
   alignWithOthersStrength: 1
   alignmentCheckDistance: 4
---- !u!114 &7795141405544209681
+--- !u!114 &7753304831259979831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,20 +241,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4531992162160880959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6477c98af1142484a3dd8e2d78ca916, type: 3}
+  m_Script: {fileID: 11500000, guid: 18c53dfbdf5f11fd589a6bdd6bc81993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  armour: 1
-  speed: 0
-  crewFlocking: {fileID: 1392940422999040276}
-  player: {fileID: 0}
-  entity: {fileID: 4066986190413390592}
-  isEnemy: 0
   animator: {fileID: 8155491921196282261}
-  entityOnSpawn: 0
-  enemyCounter: {fileID: 0}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 189561514458572652}
+  crewFlocking: {fileID: 1392940422999040276}
 --- !u!1001 &2808350728538564404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,9 +256,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6303654537520958407}
     m_Modifications:
+    - target: {fileID: 175252148049205955, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 894206792075107588, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796139226673084225, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1796139226673084225, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
       propertyPath: m_AnchorMax.y
@@ -374,3 +374,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2862070199253914966, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
   m_PrefabInstance: {fileID: 2808350728538564404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &189561514458572652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618897243383742552, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
+  m_PrefabInstance: {fileID: 2808350728538564404}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09414ab4c2ef98f20bb656e6b5e27a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -24,7 +24,6 @@ public class KnightAI : MonoBehaviour
     }
     IEnumerator ChooseAttack(){
         probability = Random.Range(0.0f, 1.0f);
-        Debug.Log(probability);
         if (0.00 < probability && probability <= 0.44){
             attackNum=1;
             waitTime=2f;

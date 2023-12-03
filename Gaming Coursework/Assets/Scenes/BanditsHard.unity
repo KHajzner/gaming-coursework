@@ -5352,7 +5352,7 @@ MonoBehaviour:
   animator: {fileID: 1034906913}
   enemyOnSpawn: 4
   enemyCounter: {fileID: 1584891573}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1451943330}
 --- !u!1001 &1058686603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8456,6 +8456,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320097706}
   m_CullTransparentMesh: 1
+--- !u!114 &1328844227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618897243383742552, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
+  m_PrefabInstance: {fileID: 1268700593}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09414ab4c2ef98f20bb656e6b5e27a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1376632147
 GameObject:
   m_ObjectHideFlags: 0
@@ -8623,6 +8634,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451943330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618897243383742552, guid: bba8db10e87b5fbaf91dbc72e73324ff, type: 3}
+  m_PrefabInstance: {fileID: 1058686603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09414ab4c2ef98f20bb656e6b5e27a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584891571
 GameObject:
   m_ObjectHideFlags: 0
@@ -19564,7 +19586,7 @@ MonoBehaviour:
   animator: {fileID: 1931107334}
   enemyOnSpawn: 3
   enemyCounter: {fileID: 302460615}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1328844227}
 --- !u!95 &1931107334
 Animator:
   serializedVersion: 5

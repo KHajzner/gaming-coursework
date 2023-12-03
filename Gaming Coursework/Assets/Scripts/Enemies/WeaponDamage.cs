@@ -10,5 +10,8 @@ public class WeaponDamage : MonoBehaviour
         if(collision.tag == "Player"){
             playerHealth.Damage(dmg);
         }
+        if(collision.tag == "Crew"){
+            collision.gameObject.GetComponent<CrewHealth>().TakeDamage(dmg);
+        }
     }
 }

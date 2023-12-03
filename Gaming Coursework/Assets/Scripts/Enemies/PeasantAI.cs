@@ -31,7 +31,6 @@ public class PeasantAI : MonoBehaviour
     
     IEnumerator ChooseAttack(){
         probability = Random.Range(0.0f, 1.0f);
-        Debug.Log(probability);
         if (0.00 < probability && probability <= 0.40){
             attackNum=1;
         }

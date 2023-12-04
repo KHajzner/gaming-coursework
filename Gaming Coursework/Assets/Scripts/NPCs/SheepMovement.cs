@@ -16,6 +16,7 @@ public class SheepMovement : MonoBehaviour
     public float barnSpeed = 0.5f;
     public bool inBarn = false;
     public Barn barn;
+    public GameObject interact;
     Vector3 raycastDirection;
     void Start()
     {
@@ -31,6 +32,7 @@ public class SheepMovement : MonoBehaviour
                 }
             }
         } 
+        interact.SetActive(false);
         InvokeRepeating("MoveInBarn", 10.0f, 5f);
     }
     void FixedUpdate()
@@ -51,19 +53,28 @@ public class SheepMovement : MonoBehaviour
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
             carrot = true;
+            interact.SetActive(false);
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision){
+        if(collision.tag == "Player"){
+            interact.SetActive(false);
         }
     }
 
-
     void OnTriggerEnter2D(Collider2D collision){
+        if(collision.tag == "Player" && !carrot){
+            interact.SetActive(true);
+        }
         if (collision.tag == "BarnEntrance"){
             carrot = false;
             inBarn = true;
-            barn.sheepCount += 1;            
+            interact.SetActive(false);
+            barn.sheepCount += 1;
+            barn.UpdateFarmerMessage();      
         }
 
     }
-    
     void MoveInBarn(){
         chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
     }

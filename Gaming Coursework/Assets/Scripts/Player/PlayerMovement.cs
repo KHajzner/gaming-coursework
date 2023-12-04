@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speed = 5f;
-    public Rigidbody2D rb;
+    public GameObject player;
     public Animator animator;
     bool facesRight = false;
     bool slides;
@@ -14,8 +14,10 @@ public class PlayerMovement : MonoBehaviour
     Vector2 direction;
     Vector2 standardVector;
     public bool up = true;
+    Vector2 initialPos;
 
     void Start(){
+        initialPos = player.GetComponent<Rigidbody2D>().position;
         Time.timeScale = 1;
     }
     void Update()
@@ -34,14 +36,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (slides){
             if (verctical){
-                rb.MovePosition(rb.position + standardVector * speed * Time.fixedDeltaTime);
+                player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + standardVector * speed * Time.fixedDeltaTime);
                 }
             else {
-                rb.MovePosition(rb.position + standardVector * speed * Time.fixedDeltaTime);
+                player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + standardVector * speed * Time.fixedDeltaTime);
                 }
         }
         else{
-            rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+            player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + direction * speed * Time.fixedDeltaTime);
         }
         SwitchRotation(direction * speed * Time.fixedDeltaTime);
     }
@@ -80,5 +82,9 @@ public class PlayerMovement : MonoBehaviour
             face.x *= -1;
             transform.localScale = face;
         }
+    }
+    
+    public void Unstuck(){
+        player.GetComponent<Rigidbody2D>().position = initialPos;
     }
 }

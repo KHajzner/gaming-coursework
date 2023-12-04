@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MazeHard.unity
     guid: f84a7ba895576a56da20bfdedfa238b4
+  - enabled: 1
+    path: Assets/Scenes/Ocean.unity
+    guid: 562b684f0eb09de4eba000c3d8ef74d5
   m_configObjects: {}

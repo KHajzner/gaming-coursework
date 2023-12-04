@@ -12,13 +12,14 @@ public class ObstacleBehaviour : MonoBehaviour
     void Start(){
         interact.SetActive(false);
     }
+    
     void FixedUpdate(){
         if (canInteract && !hasInteracted){
             if (Input.GetMouseButtonDown(0)){
                 interact.gameObject.SetActive(false);
                 hasInteracted = true;
                 if(isTreasure){
-                    Debug.Log("Found treasure!");
+                    TreasureFound();
                 }
                 else{
                     Debug.Log("Not treausre");
@@ -39,5 +40,8 @@ public class ObstacleBehaviour : MonoBehaviour
         if(collision.tag == "Player"){
             interact.SetActive(false);
        }
+    }
+    void TreasureFound(){
+        Debug.Log("Found treasure!");
     }
 }

@@ -25,10 +25,10 @@ public class ObstacleSpawning : MonoBehaviour
             Vector3 chosenSpot = new Vector3(Random.Range(-24,24), Random.Range(-24,24), 0);
             Instantiate(obstacle2,chosenSpot, Quaternion.identity);
         }
-        // for(int i = 0; i < numObstacle3; i++){
-        //     Vector3 chosenSpot = new Vector3(Random.Range(-24,24), Random.Range(-24,24), 0);
-        //     Instantiate(obstacle3,chosenSpot, Quaternion.identity);
-        // }
+        for(int i = 0; i < numObstacle3; i++){
+            Vector3 chosenSpot = new Vector3(Random.Range(-24,24), Random.Range(-24,24), 0);
+            Instantiate(obstacle3,chosenSpot, Quaternion.identity);
+        }
         foreach(GameObject obstacles in GameObject.FindGameObjectsWithTag("Obstacles")){
             var obstacle = obstacles.GetComponent<ObstacleBehaviour>();
             obstaclesInScene.Add(obstacle);
@@ -40,6 +40,5 @@ public class ObstacleSpawning : MonoBehaviour
         int length = obstaclesInScene.Count;
         int randomObstacle = Random.Range(0, length);
         obstaclesInScene[randomObstacle].isTreasure = true;
-        Debug.Log(obstaclesInScene[randomObstacle]);
     }
 }

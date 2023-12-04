@@ -85,7 +85,9 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Restart(){
-        StopCoroutine(deathRoutine);
+        if (deathRoutine != null){
+            StopCoroutine(deathRoutine);
+        }
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

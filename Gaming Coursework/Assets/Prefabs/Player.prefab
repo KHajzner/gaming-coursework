@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rb: {fileID: 4559249256169599066}
+  player: {fileID: 98532792737913118}
   animator: {fileID: 2942627167120889850}
   up: 1
 --- !u!114 &6245017908799122481

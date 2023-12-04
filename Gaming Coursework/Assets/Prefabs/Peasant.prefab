@@ -1037,6 +1037,6 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy: {fileID: 6507090913134280438}
   animator: {fileID: 6216183301555155243}
-  enemyOnSpawn: 0
+  enemyOnSpawn: 5
   enemyCounter: {fileID: 0}
   healthBar: {fileID: 6096425928723609652}

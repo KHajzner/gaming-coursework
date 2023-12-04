@@ -57,11 +57,15 @@ public class FarmerInteraction : MonoBehaviour
         nextScene.gameObject.SetActive(true);
     }
     public void Accept(){
-        nextSceneName.nextSceneName="Maze"+GlobalVars.difficulty;
+        string dif = GlobalVars.difficulty;
+        if (dif == null){
+            dif = "Easy";
+        }
+        nextSceneName.nextSceneName="Maze"+dif;
     }
     public void Deny(){
         nextArea.SetText("Continue");
         farmerChat.SetText("That's a shame. Best of luck!");
-        nextSceneName.nextSceneName="BanditsHard";
+        nextSceneName.nextSceneName="Ocean";
     }
 }

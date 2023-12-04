@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rb: {fileID: 1355283141}
+  player: {fileID: 1355283140}
   animator: {fileID: 1355283147}
   up: 1
 --- !u!95 &1355283147

@@ -9,7 +9,6 @@ public class ShipMovement : MonoBehaviour
     Vector2 direction;
     float initMass;
     float currentMass;
-    Vector2 currentDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,21 +18,14 @@ public class ShipMovement : MonoBehaviour
     }
 
     void Update(){
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
+        direction.x = Input.GetAxisRaw("Horizontal")*3;
+        direction.y = Input.GetAxisRaw("Vertical")*3;
+
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         ship.GetComponent<Rigidbody2D>().AddForce(direction, ForceMode2D.Force);
-    }
-    void OnTriggerStay2D(Collider2D collision){
-        Debug.Log("kk");
-        if (collision.tag == "Current"){
-            Debug.Log("I'm in a current!");
-            currentDirection = collision.gameObject.GetComponent<Current>().currentDirection;
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(currentDirection, ForceMode2D.Force);
-        }
     }
     public void ThrowCrewOverboard(){
         GlobalVars.crewScore = GlobalVars.crewScore - 1;

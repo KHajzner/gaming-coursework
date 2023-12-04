@@ -20,8 +20,8 @@ public class ShipMovement : MonoBehaviour
     }
 
     void Update(){
-        direction.x = Input.GetAxisRaw("Horizontal")*3;
-        direction.y = Input.GetAxisRaw("Vertical")*3;
+        direction.x = Input.GetAxisRaw("Horizontal")*4;
+        direction.y = Input.GetAxisRaw("Vertical")*4;
 
     }
     // Update is called once per frame

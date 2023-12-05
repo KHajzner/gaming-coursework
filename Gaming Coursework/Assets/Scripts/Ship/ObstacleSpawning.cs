@@ -18,15 +18,15 @@ public class ObstacleSpawning : MonoBehaviour
         numObstacle3 = Random.Range(2,6);
 
         for(int i = 0; i < numObstacle1; i++){
-            Vector3 chosenSpot = new Vector3(Random.Range(-24,24), Random.Range(-24,24), 0);
+            Vector3 chosenSpot = new Vector3(Random.Range(-26,26), Random.Range(-24,22), 0);
             Instantiate(obstacle1,chosenSpot, Quaternion.identity);
         }
         for(int i = 0; i < numObstacle2; i++){
-            Vector3 chosenSpot = new Vector3(Random.Range(-24,24), Random.Range(-24,24), 0);
+            Vector3 chosenSpot = new Vector3(Random.Range(-26,26), Random.Range(-24,22), 0);
             Instantiate(obstacle2,chosenSpot, Quaternion.identity);
         }
         for(int i = 0; i < numObstacle3; i++){
-            Vector3 chosenSpot = new Vector3(Random.Range(-24,24), Random.Range(-24,24), 0);
+            Vector3 chosenSpot = new Vector3(Random.Range(-26,26), Random.Range(-24,22), 0);
             Instantiate(obstacle3,chosenSpot, Quaternion.identity);
         }
         foreach(GameObject obstacles in GameObject.FindGameObjectsWithTag("Obstacles")){

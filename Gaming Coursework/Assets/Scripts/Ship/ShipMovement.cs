@@ -11,8 +11,11 @@ public class ShipMovement : MonoBehaviour
     float initMass;
     float currentMass;
     public TMP_Text warning;
-
+    public GameObject finishedScreen;
+    Vector2 initialPos;
     void Start(){
+        finishedScreen.SetActive(false);
+        initialPos = ship.GetComponent<Rigidbody2D>().position;
         warning.gameObject.SetActive(false);
         float currentMass = 20;
         GlobalVars.crewScore = 20;
@@ -40,5 +43,11 @@ public class ShipMovement : MonoBehaviour
         else{
             warning.gameObject.SetActive(true);
         }
+    }
+    public void Unstuck(){
+        ship.GetComponent<Rigidbody2D>().position = initialPos;
+    }
+    public void FinishedGame(){
+        finishedScreen.SetActive(true);
     }
 }

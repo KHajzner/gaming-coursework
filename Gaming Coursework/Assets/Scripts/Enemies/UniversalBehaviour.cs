@@ -81,7 +81,8 @@ public class UniversalBehaviour : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-    IEnumerator FlashRed(){
+    IEnumerator FlashRed()
+    {
         speed = 0;
         GetComponent<SpriteRenderer> ().color = Color.red;
         yield return new WaitForSeconds(0.3f); 
@@ -89,7 +90,8 @@ public class UniversalBehaviour : MonoBehaviour
         GetComponent<SpriteRenderer> ().color = Color.white;     
         yield return new WaitForSeconds(0.3f); 
     }
-    IEnumerator Death(){
+    IEnumerator Death()
+    {
         animator.ResetTrigger("Hurt");
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(0.5f);
@@ -97,7 +99,8 @@ public class UniversalBehaviour : MonoBehaviour
         startedDying = false;
     }
     
-    void SwitchRotation(){
+    void SwitchRotation()
+    {
         if ((player.position.x < enemy.position.x && facesRight) || (player.position.x > enemy.position.x  && !facesRight)){
             facesRight = !facesRight;
             Vector3 face = transform.localScale;

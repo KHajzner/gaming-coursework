@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class ObstacleSpawning : MonoBehaviour
 {
-    int numObstacle1;
-    int numObstacle2;
-    int numObstacle3;
-    public GameObject obstacle1;
-    public GameObject obstacle2;
-    public GameObject obstacle3;
+    int numObstacle1, numObstacle2, numObstacle3;
+    public GameObject obstacle1, obstacle2, obstacle3;
     public List<ObstacleBehaviour> obstaclesInScene;
+
     void Start()
     {
         numObstacle1 = Random.Range(2,6);
@@ -36,7 +33,9 @@ public class ObstacleSpawning : MonoBehaviour
         SetTreasure();
     }
 
-    void SetTreasure(){
+    //Set random obstacle to have the treasure
+    void SetTreasure()
+    {
         int length = obstaclesInScene.Count;
         int randomObstacle = Random.Range(0, length);
         obstaclesInScene[randomObstacle].isTreasure = true;

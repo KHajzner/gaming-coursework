@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 311064524}
   - component: {fileID: 311064525}
   m_Layer: 0
-  m_Name: Currents
+  m_Name: Current2
   m_TagString: Current
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1925,7 +1925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d258181a9215844e88283bb0561c1331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDirection: {x: 20, y: 0}
+  currentDirection: {x: 10, y: 0}
 --- !u!1 &352340820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,7 +2260,7 @@ SpriteRenderer:
   m_SortingLayerID: 42821765
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 28f29d4c4d5e0ce7e89b14d6a5bbe056, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a755798944b45edb80d965c36c2180b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2302,6 +2302,11 @@ MonoBehaviour:
   ship: {fileID: 645610424}
   warning: {fileID: 203569847}
   finishedScreen: {fileID: 66801637}
+  shipUp: {fileID: 21300000, guid: 9a755798944b45edb80d965c36c2180b, type: 3}
+  shipDown: {fileID: 21300000, guid: 860be12f55317f1baab9b00ffcf6a2ff, type: 3}
+  shipLeft: {fileID: 21300000, guid: 97b5b77a908ae3af985656f84b1335dc, type: 3}
+  shipRight: {fileID: 21300000, guid: 2bd10b8fa44d4d1f191d8ad5cb99051f, type: 3}
+  spriteRenderer: {fileID: 0}
 --- !u!50 &645610428
 Rigidbody2D:
   serializedVersion: 4
@@ -2784,7 +2789,7 @@ GameObject:
   - component: {fileID: 1185301595}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47854,8 +47859,8 @@ GameObject:
   - component: {fileID: 1245895676}
   - component: {fileID: 1245895678}
   - component: {fileID: 1245895677}
-  - component: {fileID: 1245895680}
   - component: {fileID: 1245895681}
+  - component: {fileID: 1245895680}
   m_Layer: 0
   m_Name: Current4
   m_TagString: Current
@@ -48943,7 +48948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d258181a9215844e88283bb0561c1331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDirection: {x: 10, y: 0}
+  currentDirection: {x: 8, y: 0}
 --- !u!19719996 &1245895681
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -91850,7 +91855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d258181a9215844e88283bb0561c1331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDirection: {x: -10, y: -15}
+  currentDirection: {x: -5, y: -10}
 --- !u!1 &1894820404
 GameObject:
   m_ObjectHideFlags: 0
@@ -93932,7 +93937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d258181a9215844e88283bb0561c1331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDirection: {x: 0, y: -15}
+  currentDirection: {x: 0, y: -8}
 --- !u!1 &1994071964
 GameObject:
   m_ObjectHideFlags: 0

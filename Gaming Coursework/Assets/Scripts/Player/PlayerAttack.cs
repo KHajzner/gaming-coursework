@@ -6,13 +6,17 @@ public class PlayerAttack : MonoBehaviour
 {
     public Animator animator;
     bool clickedRecently = false;
-    void FixedUpdate(){
+
+    void FixedUpdate()
+    {
         if (Input.GetMouseButtonDown(0) && !clickedRecently){
             StartCoroutine(RecentClick());
         }
     }
 
-    IEnumerator RecentClick(){
+    //Add cooldown to the attack
+    IEnumerator RecentClick()
+    {
         clickedRecently = true;
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.6f);

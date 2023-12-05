@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class GlobalVars
 {
+    //Difficulty of the game
     public static string difficulty { get; set; }
 
     //How much crew left in total game

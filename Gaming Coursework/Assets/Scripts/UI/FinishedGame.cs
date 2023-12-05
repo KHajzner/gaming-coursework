@@ -15,11 +15,15 @@ public class FinishedGame : MonoBehaviour
             Invoke("OpenChest", 1.5f);
         }
     }
-    void OpenChest(){
+    
+    void OpenChest()
+    {
         chest.GetComponent<Animator>().SetBool("Open", true);
         Invoke("FriendsAlongTheWay", 2f);
     }
-    void FriendsAlongTheWay(){
+
+    void FriendsAlongTheWay()
+    {
         if(GlobalVars.crewScore > 14){
             congrats.SetText("The treasure was... the friends we made along the way??\n" + GlobalVars.crewScore + " of your crew survived this journey. \n You should be proud of yourself.");
         }

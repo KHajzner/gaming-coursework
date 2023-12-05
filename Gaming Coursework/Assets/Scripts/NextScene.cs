@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class NextScene : MonoBehaviour
 {    
     public string nextSceneName;
-    void OnTriggerEnter2D(Collider2D collision){
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if(collision.tag == "NextScene"){
             Next(nextSceneName);
         }

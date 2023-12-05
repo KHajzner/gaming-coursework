@@ -6,7 +6,8 @@ public class GeneralUI : MonoBehaviour
 {
     public GameObject information;
 
-    public void CloseInfo(){
+    public void CloseInfo()
+    {
         information.SetActive(false);
     }
 }

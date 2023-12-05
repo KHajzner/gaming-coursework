@@ -18,6 +18,7 @@ TagManager:
   - NextScene
   - Obstacles
   - Current
+  - Wall
   layers:
   - Default
   - TransparentFX

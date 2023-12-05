@@ -12,14 +12,13 @@ public class Barn : MonoBehaviour
     public FarmerInMaze farmerInMaze;
     public GameObject continuationMenu;
     bool called = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         sheepCount = 0;
         sheepMessage.SetText("There are " + (sheepSpawning.sheepPerSpawn - sheepCount) + " sheep left.");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (sheepCount == sheepSpawning.sheepPerSpawn && !called){
@@ -30,6 +29,7 @@ public class Barn : MonoBehaviour
             farmerInMaze.endMessage.SetText("Nice! You got all the sheep. Thanks. Here are the oranges.");
         }
     }
+
     public void UpdateFarmerMessage(){
         sheepMessage.SetText("There are " + (sheepSpawning.sheepPerSpawn - sheepCount) + " sheep left.");
     }

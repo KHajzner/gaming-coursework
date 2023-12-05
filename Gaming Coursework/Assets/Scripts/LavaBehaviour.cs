@@ -5,18 +5,19 @@ using UnityEngine.Tilemaps;
 
 public class LavaBehaviour : MonoBehaviour
 {
-    public Tilemap smallPool, spawnArea, middlePool, bigPool, movableArea, obstacles;
-    public Tilemap currentLava;
+    public Tilemap smallPool, spawnArea, middlePool, bigPool, movableArea, obstacles, currentLava;
     public float middleDelay, bigDelay;
     public TileBase tileBase;
     float delayBetween = 0.5f;
-    // Start is called before the first frame update
-    void Awake(){
+
+    void Awake()
+    {
         currentLava = smallPool;
         addObstacles(smallPool);
         removeSpawn(smallPool);
         changeMovableArea(smallPool);
     }
+
     void Start()
     {
         middlePool.gameObject.SetActive(false);
@@ -25,7 +26,9 @@ public class LavaBehaviour : MonoBehaviour
         StartCoroutine(MoveLava(bigDelay, bigPool));
     }
 
-    void removeSpawn(Tilemap lavaPool){
+    //Remove tiles from the spawn area where lava is
+    void removeSpawn(Tilemap lavaPool)
+    {
         foreach (var position in lavaPool.cellBounds.allPositionsWithin){
             if(lavaPool.HasTile(position)){
                 Vector3Int spawnAreaPosition = new Vector3Int(position.x, position.y, 0);
@@ -33,7 +36,10 @@ public class LavaBehaviour : MonoBehaviour
             }
         }
     }
-    void changeMovableArea(Tilemap lavaPool){
+
+    //Remove tiles from the movable area tilemap
+    void changeMovableArea(Tilemap lavaPool)
+    {
         foreach (var position in lavaPool.cellBounds.allPositionsWithin){
             if(lavaPool.HasTile(position)){
                 Vector3Int movableAreaPosition = new Vector3Int(position.x, position.y, 0);
@@ -41,7 +47,10 @@ public class LavaBehaviour : MonoBehaviour
             }
         }
     }
-    void addObstacles(Tilemap lavaPool){
+
+    //Add tiles to the obstacles tilemap where lava is
+    void addObstacles(Tilemap lavaPool)
+    {
         foreach (var position in lavaPool.cellBounds.allPositionsWithin){
             if(lavaPool.HasTile(position)){
                 Vector3Int obstaclePosition = new Vector3Int(position.x, position.y, 0);
@@ -49,7 +58,10 @@ public class LavaBehaviour : MonoBehaviour
             }
         }
     }
-    IEnumerator MoveLava(float delay, Tilemap lavaPool){
+
+    //Expand lava pools after specified time
+    IEnumerator MoveLava(float delay, Tilemap lavaPool)
+    {
         Collider2D[] movingColliders = lavaPool.GetComponents<Collider2D>();
         foreach(var collider in movingColliders){
             collider.enabled = false;

@@ -7,16 +7,14 @@ public class Won : MonoBehaviour
 {
     public GameObject won;
     public TMP_Text winningText;
-    public int enemiesBeaten = 0;
-    int enemiesToBeat = 2;
+    public int enemiesBeaten = 0, enemiesToBeat = 2;
     public CrewSpawning crewSpawning;
-    // Start is called before the first frame update
+
     void Start()
     {
         won.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(enemiesBeaten == enemiesToBeat)

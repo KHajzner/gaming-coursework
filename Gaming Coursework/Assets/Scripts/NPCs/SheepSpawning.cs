@@ -9,10 +9,21 @@ public class SheepSpawning : MonoBehaviour
     public Rigidbody2D sheep;
     public Tilemap tilemap;
     public List<Vector3> freeSpots;
-    public float sheepPerSpawn = 3f;
+    public float sheepPerSpawn;
     private Vector3 chosenSpot;
+
     void Start()
     { 
+
+        //Ranomly choose number of sheep
+        if(GlobalVars.difficulty == "Easy"){
+            sheepPerSpawn = Random.Range(2, 5);
+        }
+        else{
+            sheepPerSpawn = Random.Range(5, 8);
+        }
+
+        //Get all the possible spawning spots
         freeSpots = new List<Vector3>();
 
         for (int n = tilemap.cellBounds.xMin; n < tilemap.cellBounds.xMax; n++)
@@ -28,6 +39,7 @@ public class SheepSpawning : MonoBehaviour
             }
         }
 
+        //Spawn sheep
         for (int i = 0; i < sheepPerSpawn; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];

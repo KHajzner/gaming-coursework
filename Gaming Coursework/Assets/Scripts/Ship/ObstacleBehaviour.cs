@@ -6,16 +6,18 @@ public class ObstacleBehaviour : MonoBehaviour
 {
     
     public bool isTreasure = false;
-    bool hasInteracted;
-    bool canInteract;
+    bool hasInteracted, canInteract;
     public GameObject interact;
     GameObject ship;
-    void Start(){
+
+    void Start()
+    {
         ship = GameObject.Find("Ship");
         interact.SetActive(false);
     }
     
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         if (canInteract && !hasInteracted){
             if (Input.GetMouseButtonDown(0)){
                 interact.gameObject.SetActive(false);
@@ -29,7 +31,9 @@ public class ObstacleBehaviour : MonoBehaviour
             }
         }
     }
-    void OnTriggerEnter2D(Collider2D collision){
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if(collision.tag == "Player"){
             if(!hasInteracted){
                 interact.SetActive(true);
@@ -37,12 +41,14 @@ public class ObstacleBehaviour : MonoBehaviour
             canInteract = true;
        }
     }
-    void OnTriggerExit2D(Collider2D collision){
+    void OnTriggerExit2D(Collider2D collision)
+    {
         if(collision.tag == "Player"){
             interact.SetActive(false);
        }
     }
-    void TreasureFound(){
+    void TreasureFound()
+    {
         ship.GetComponent<ShipMovement>().FinishedGame();
         Debug.Log("Found treasure!");
     }

@@ -8,18 +8,16 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public GameObject player;
     public Animator animator;
-    bool facesRight = false;
-    bool slides;
-    bool verctical;
-    Vector2 direction;
-    Vector2 standardVector;
+    bool facesRight = false, slides, verctical;
+    Vector2 direction, standardVector, initialPos;
     public bool up = true;
-    Vector2 initialPos;
 
-    void Start(){
+    void Start()
+    {
         initialPos = player.GetComponent<Rigidbody2D>().position;
         Time.timeScale = 1;
     }
+
     void Update()
     {   
         direction.x = Input.GetAxisRaw("Horizontal");
@@ -37,10 +35,10 @@ public class PlayerMovement : MonoBehaviour
         if (slides){
             if (verctical){
                 player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + standardVector * speed * Time.fixedDeltaTime);
-                }
+            }
             else {
                 player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + standardVector * speed * Time.fixedDeltaTime);
-                }
+            }
         }
         else{
             player.GetComponent<Rigidbody2D>().MovePosition(player.GetComponent<Rigidbody2D>().position + direction * speed * Time.fixedDeltaTime);
@@ -48,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
         SwitchRotation(direction * speed * Time.fixedDeltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D collision){
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if(collision.tag == "Water"){
             speed = 3f;
         }
@@ -68,14 +67,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision){
+    void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.tag == "MudHorizontal" || collision.tag == "MudVertical" || collision.tag == "Water"){
             speed = 5f;
             slides = false;
         }
     }
 
-    void SwitchRotation(Vector2 direction){
+    void SwitchRotation(Vector2 direction)
+    {
         if ((direction.x > 0 && !facesRight) || (direction.x < 0 && facesRight)){
             facesRight = !facesRight;
             Vector3 face = transform.localScale;
@@ -84,7 +85,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     
-    public void Unstuck(){
+    //Move player to the starting position
+    public void Unstuck()
+    {
         player.GetComponent<Rigidbody2D>().position = initialPos;
     }
 }

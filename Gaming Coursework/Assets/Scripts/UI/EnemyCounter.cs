@@ -6,15 +6,17 @@ using TMPro;
 public class EnemyCounter : MonoBehaviour
 {
     public TMP_Text EnemyCount;
-    public int killedEnemies;
+    public int enemyOnStart = 0, killedEnemies;
     public Won won;
-    public int enemyOnStart = 0;
     public string enemyType;
 
-    void Start(){
+    void Start()
+    {
         Invoke("CreateCounter", 0.1f);
     }
-    public void CreateCounter(){
+    
+    public void CreateCounter()
+    {
         foreach(GameObject enemyObject in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             if (enemyObject.name == enemyType + "(Clone)"){
@@ -26,7 +28,9 @@ public class EnemyCounter : MonoBehaviour
             won.enemiesBeaten += 1;
         }
     }
-    public void UpdateCounter(){
+    
+    public void UpdateCounter()
+    {
         killedEnemies += 1;
         EnemyCount.SetText(killedEnemies + "/" + enemyOnStart);
 

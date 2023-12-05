@@ -5,7 +5,8 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
     public float dmg;
-    void OnTriggerEnter2D(Collider2D collision){
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if(collision.tag == "Player"){
             collision.gameObject.GetComponent<PlayerHealth>().Damage(dmg);
         }

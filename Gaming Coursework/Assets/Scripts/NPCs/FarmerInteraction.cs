@@ -5,18 +5,11 @@ using TMPro;
 
 public class FarmerInteraction : MonoBehaviour
 {
-    public GameObject introduction;
-    public GameObject interact;
-
-    public GameObject afterClick;
-    public GameObject arrow;
-    public GameObject nextScene;
+    public GameObject introduction, interact, afterClick, arrow, nextScene;
     public NextScene nextSceneName;
+    public TMP_Text farmerChat, nextArea;
+    bool canInteract = false, hasInteracted = false;
 
-    public TMP_Text farmerChat;
-    public TMP_Text nextArea;
-    bool canInteract = false;
-    bool hasInteracted = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +20,8 @@ public class FarmerInteraction : MonoBehaviour
         nextScene.gameObject.SetActive(false);
     }
 
-    void FixedUpdate(){
+    void FixedUpdate()
+    {
         if (canInteract && !hasInteracted){
             if (Input.GetMouseButtonDown(0)){
                 introduction.gameObject.SetActive(true);
@@ -36,7 +30,9 @@ public class FarmerInteraction : MonoBehaviour
             }
         }
     }
-    void OnTriggerEnter2D(Collider2D collision){
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if(collision.tag == "Farmer"){
             if(!hasInteracted){
                 interact.gameObject.SetActive(true);
@@ -44,26 +40,38 @@ public class FarmerInteraction : MonoBehaviour
             canInteract = true;
        }
     }
-    void OnTriggerExit2D(Collider2D collision){
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
         if(collision.tag == "Farmer"){
             interact.gameObject.SetActive(false);
        }
     }
 
-    public void AfterClick(){
+    public void AfterClick()
+    {
         introduction.gameObject.SetActive(false);
         afterClick.gameObject.SetActive(true);
         arrow.gameObject.SetActive(true);
         nextScene.gameObject.SetActive(true);
     }
-    public void Accept(){
+    public void Accept()
+    {
         string dif = GlobalVars.difficulty;
         if (dif == null){
             dif = "Easy";
         }
         nextSceneName.nextSceneName="Maze"+dif;
     }
-    public void Deny(){
+    
+    public void Deny()
+    {
+        if(GlobalVars.difficulty == "Easy"){
+            GlobalVars.crewScore -= 3;
+        }
+        else{
+            GlobalVars.crewScore -= 6;
+        }
         nextArea.SetText("Continue");
         farmerChat.SetText("That's a shame. Best of luck!");
         nextSceneName.nextSceneName="Ocean";

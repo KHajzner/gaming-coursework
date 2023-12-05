@@ -14,3 +14,5 @@ avoiding the enemies
 Move on Tilemap script from demo of the Aoiti pathfinding plugin
 
 Enemy and Crew health bars https://www.youtube.com/watch?v=_lREXfAMUcE
+
+Audio manager from Brackeys https://www.youtube.com/watch?v=6OT43pvUyfY

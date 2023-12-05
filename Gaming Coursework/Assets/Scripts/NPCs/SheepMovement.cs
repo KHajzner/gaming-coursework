@@ -7,7 +7,7 @@ public class SheepMovement : MonoBehaviour
 {
     public Rigidbody2D player, sheep;
     public float speed,  barnSpeed = 0.5f;
-    public bool carrot = false, bool inBarn = false;
+    public bool carrot = false, inBarn = false;
     public Tilemap barnMap;
     public List<Vector3> freeSpots;
     public Barn barn;

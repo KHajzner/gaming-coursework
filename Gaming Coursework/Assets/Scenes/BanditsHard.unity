@@ -1648,9 +1648,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyCount: {fileID: 302460616}
+  enemyOnStart: 0
   killedEnemies: 0
   won: {fileID: 1729965942}
-  enemyOnStart: 0
   enemyType: Knight
 --- !u!114 &302460616
 MonoBehaviour:
@@ -8157,9 +8157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyCount: {fileID: 1584891574}
+  enemyOnStart: 0
   killedEnemies: 0
   won: {fileID: 1729965942}
-  enemyOnStart: 0
   enemyType: Peasant
 --- !u!114 &1584891574
 MonoBehaviour:
@@ -8577,6 +8577,7 @@ MonoBehaviour:
   won: {fileID: 1920409653}
   winningText: {fileID: 688464129}
   enemiesBeaten: 0
+  enemiesToBeat: 2
   crewSpawning: {fileID: 2027176119}
 --- !u!1 &1776614477
 GameObject:
@@ -19319,11 +19320,15 @@ PrefabInstance:
     - target: {fileID: 4779432788590760310, guid: 4d20d6bfefcc23d0bb9a4c3388bfeac1, type: 3}
       propertyPath: lost
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1177139217}
     - target: {fileID: 4779432788590760310, guid: 4d20d6bfefcc23d0bb9a4c3388bfeac1, type: 3}
       propertyPath: heartsParent
       value: 
       objectReference: {fileID: 475301809}
+    - target: {fileID: 6245017908799122481, guid: 4d20d6bfefcc23d0bb9a4c3388bfeac1, type: 3}
+      propertyPath: slash
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

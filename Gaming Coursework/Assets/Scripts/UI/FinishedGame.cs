@@ -7,15 +7,7 @@ public class FinishedGame : MonoBehaviour
 {
     public TMP_Text congrats;
     public GameObject chest;
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(GlobalVars.crewScore == 0){
-            GlobalVars.crewScore = 20;
-        }
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(0)){

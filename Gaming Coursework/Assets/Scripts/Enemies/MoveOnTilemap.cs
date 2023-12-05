@@ -29,7 +29,6 @@ public class MoveOnTilemap : MonoBehaviour
     float distanceBetween;
     bool startedMoving = false;
 
-
     public float DistanceFunc(Vector3Int a, Vector3Int b)
     {
         return (a-b).sqrMagnitude;
@@ -57,13 +56,12 @@ public class MoveOnTilemap : MonoBehaviour
     void Awake(){
         tilemap = GameObject.Find("MovableArea").GetComponent<Tilemap>();
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         pathfinder = new Pathfinder<Vector3Int>(DistanceFunc, connectionsAndCosts);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);

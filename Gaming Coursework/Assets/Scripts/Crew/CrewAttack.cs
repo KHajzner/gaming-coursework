@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CrewAttack : MonoBehaviour
-{
+{    
+    //Randomly attack every few seconds
     public Animator animator;
-    // Update is called once per frame
     void Start()
     {
         StartCoroutine(Attack());
     }
-    IEnumerator Attack(){
+    IEnumerator Attack()
+    {
         while(true){
             var probability = Random.Range(0.0f, 1.0f);
             if (probability <= 0.40){

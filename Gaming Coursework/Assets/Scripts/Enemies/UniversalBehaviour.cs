@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class UniversalBehaviour : MonoBehaviour
 {
-    public float health;
-    float maxHealth = 100;
-    public float armour = 1f;
-    public float speed;
-    bool startedDying = false;
-    public string enemyType;
-    
+    public float health, maxHealth = 100, speed, armour = 1f;
+
     //Entities
-    public Rigidbody2D player;
-    public Rigidbody2D enemy;
+    public Rigidbody2D player, enemy;
+    public string enemyType;
 
     //Routines
     Coroutine damageRoutine = null;
@@ -21,13 +16,14 @@ public class UniversalBehaviour : MonoBehaviour
 
     //Animations
     public Animator animator;
-    bool facesRight = true;
+    bool facesRight = true, startedDying = false;
 
     //UI
     public EnemyCounter enemyCounter;
     [SerializeField] FloatingHealthBar healthBar;
     
-    void Awake(){
+    void Awake()
+    {
         player = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
     void Start()
@@ -47,28 +43,35 @@ public class UniversalBehaviour : MonoBehaviour
             enemyCounter.UpdateCounter();
         }
     }
-    void FixedUpdate(){
+
+    void FixedUpdate()
+    {
         SwitchRotation();
     }
-    void OnTriggerEnter2D(Collider2D collision){
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if(collision.tag == "Lava"){
             damageRoutine = StartCoroutine(LavaDamage());
         }
     }
-    void OnTriggerExit2D(Collider2D collision){
+    void OnTriggerExit2D(Collider2D collision)
+    {
         if(collision.tag == "Lava"){
             StopCoroutine(damageRoutine);
             StopCoroutine(flashRedRoutine);
             GetComponent<SpriteRenderer> ().color = Color.white;   
         }
     }
-    public void TakeDamage(float damage){
+    public void TakeDamage(float damage)
+    {
         health -= (damage/armour);
         healthBar.UpdateHealthBar(health, maxHealth);
         animator.SetTrigger("Hurt");
         flashRedRoutine = StartCoroutine(FlashRed());
     }
-    IEnumerator LavaDamage(){
+    IEnumerator LavaDamage()
+    {
         while (health > 0)
         {
             health -= 10f;

@@ -5,24 +5,22 @@ using UnityEngine;
 public class PeasantAI : MonoBehaviour
 {
     public UniversalBehaviour UB;
-    float distanceBetween;
-    float hittingDistance = 1.5f;
-    float viewingDistance = 4f;
-    int attackNum;
-    float probability;
     public Animator animator;
-    Coroutine chooseAttack = null;
-    bool startedAttacking = false;
-    bool attackCrew = false;
     public LayerMask layerMask;
+    Coroutine chooseAttack = null;
+    float distanceBetween, viewingDistance = 4f, hittingDistance = 1.5f;
+    bool startedAttacking = false, attackCrew = false, startedReset = false;
     Collider2D[] nearCrew;
-    bool startedReset = false;
+    int attackNum;
+
     void FixedUpdate()
     {    
+        //Start scanning for crew every few seconds
         if(!startedReset){
             startedReset = true;
             Invoke("ResetScan", 4f);
         }
+        //Attack crew
         if(attackCrew){
             if(!startedAttacking){
                 startedAttacking = true;
@@ -31,6 +29,7 @@ public class PeasantAI : MonoBehaviour
             UB.enemy.position = Vector2.MoveTowards(UB.enemy.position, nearCrew[0].transform.position, UB.speed * Time.deltaTime);
             animator.SetBool("Moving", true);
         }
+        //Attack player
         else{
             distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);
             if(hittingDistance >= distanceBetween && !startedAttacking){
@@ -48,8 +47,10 @@ public class PeasantAI : MonoBehaviour
         }
     }
     
-    IEnumerator ChooseAttack(){
-        probability = Random.Range(0.0f, 1.0f);
+    //Choose a random attack with different probabilities
+    IEnumerator ChooseAttack()
+    {
+        float probability = Random.Range(0.0f, 1.0f);
         if (0.00 < probability && probability <= 0.40){
             attackNum=1;
         }
@@ -67,7 +68,10 @@ public class PeasantAI : MonoBehaviour
         yield return new WaitForSeconds(2f);
         startedAttacking = false;
     }
-    void ResetScan(){
+
+    //Scans for nearby crew
+    void ResetScan()
+    {
         float radius = 3f;
         nearCrew = Physics2D.OverlapCircleAll(UB.enemy.position, radius, layerMask);
         if(nearCrew.Length == 0){

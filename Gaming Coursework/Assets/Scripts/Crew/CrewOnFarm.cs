@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CrewOnFarm : MonoBehaviour
 {
-    public Rigidbody2D crew;
-    public Rigidbody2D player;
+    public Rigidbody2D crew, player;
     public Animator animator;
     public float beNear;
     float distanceBetween;
@@ -14,6 +13,7 @@ public class CrewOnFarm : MonoBehaviour
     
     void Update()
     {
+        //Follow the player
         distanceBetween = Vector2.Distance(player.transform.position, crew.position);
         SwitchRotation();
         if (distanceBetween > beNear){
@@ -25,7 +25,9 @@ public class CrewOnFarm : MonoBehaviour
         }
     }
 
-    void SwitchRotation(){
+    //Switch sprite to face the driection of movement
+    void SwitchRotation()
+    {
         if ((player.position.x < crew.position.x && facesRight) || (player.position.x > crew.position.x  && !facesRight)){
             facesRight = !facesRight;
             Vector3 face = transform.localScale;

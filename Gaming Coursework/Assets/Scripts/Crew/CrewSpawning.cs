@@ -8,12 +8,13 @@ public class CrewSpawning : MonoBehaviour
     public GameObject crewPrefab;
     public Tilemap spawnArea;
     public List<Vector3> freeSpots;
+    public int crewOnStart;
     private Vector3 chosenSpot;
-    public int crewOnStart = 5;
-
 
     void Start()
     {
+        //Get all tiles from the spawnArea Tilemap
+        crewOnStart = Random.Range(4,7);
         GlobalVars.crewOnBandit = crewOnStart;
         freeSpots = new List<Vector3>();
         for (int n = spawnArea.cellBounds.xMin; n < spawnArea.cellBounds.xMax; n++)
@@ -29,6 +30,7 @@ public class CrewSpawning : MonoBehaviour
             }
         }
 
+        //Choose a random spot and spawn a crewPrefab on it
         for (int i = 0; i < crewOnStart; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];

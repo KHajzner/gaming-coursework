@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CrewHealth : MonoBehaviour
-{
+{    
+    public FloatingHealthBar healthBar;
+    public CrewFlocking crewFlocking;
+    public Animator animator;
     public float health;
     float maxHealth = 10;
     bool startedDying = false;
-    public Animator animator;
-    public FloatingHealthBar healthBar;
-    public CrewFlocking crewFlocking;
+
     
-    // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
@@ -19,7 +19,6 @@ public class CrewHealth : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (health <= 0 && !startedDying){
@@ -29,12 +28,16 @@ public class CrewHealth : MonoBehaviour
             StartCoroutine(Death());
         }
     }
-    public void TakeDamage(float damage){
+
+    public void TakeDamage(float damage)
+    {
         health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
         animator.SetTrigger("Hurt");
     }
-    IEnumerator Death(){
+
+    IEnumerator Death()
+    {
         animator.ResetTrigger("Hurt");
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(0.5f);

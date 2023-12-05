@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 public class CrewFlocking : MonoBehaviour
 {    
     public float speed;
-    bool bounced = false;
     public Rigidbody2D crew;
     public Animator animator;
+    bool bounced = false;
     bool facesRight = false;
     Vector2 direction;
 
@@ -22,7 +22,8 @@ public class CrewFlocking : MonoBehaviour
     public float alignWithOthersStrength;//factor determining turn rate to align with other boids
     public float alignmentCheckDistance;//distance up to which alignment of boids will be checked. Boids with greater distance than this will be ignored
 
-    void Start(){
+    void Start()
+    {
         foreach(GameObject crew in GameObject.FindGameObjectsWithTag("Crew")){
             var flocking = crew.GetComponent<CrewFlocking>();
             boidsInScene.Add(flocking);
@@ -33,7 +34,8 @@ public class CrewFlocking : MonoBehaviour
         }
         animator.SetBool("Moving", true);
     }
-    void Update(){
+    void Update()
+    {
         AlignWithOthers();
         MoveToCenter();
         AvoidEnemies();
@@ -43,23 +45,26 @@ public class CrewFlocking : MonoBehaviour
         SwitchRotation(direction * speed * Time.fixedDeltaTime);
     }
 
-    void OnCollisionEnter2D(Collision2D collision){
+    void OnCollisionEnter2D(Collision2D collision)
+    {
         if(collision.collider.tag == "Obstacles"){
             crew.AddForce(collision.contacts[0].normal * 50f);
             bounced = true;
             Invoke("RemoveBounce", 1f);
         }
     }
-    void RemoveBounce(){
+    void RemoveBounce()
+    {
         bounced = false;
     }
-    void MoveToCenter(){
 
-        Vector2 positionSum = transform.position;//calculate sum of position of nearby boids and get count of boid
+    //Move the crew to the center of their group
+    void MoveToCenter()
+    {
+
+        Vector2 positionSum = transform.position;
         int count = 0;
-
-        foreach (CrewFlocking boid in boidsInScene)
-        {
+        foreach (CrewFlocking boid in boidsInScene){
             float distance = Vector2.Distance(boid.transform.position, transform.position);
             if (distance <= localBoidsDistance){
                 positionSum += (Vector2)boid.transform.position;
@@ -70,43 +75,36 @@ public class CrewFlocking : MonoBehaviour
         if (count == 0){
             return;
         }
-
-        //get average position of boids
-        Vector2 positionAverage = positionSum / count;
+        Vector2 positionAverage = (positionSum / count);
         positionAverage = positionAverage.normalized;
         Vector2 faceDirection = (positionAverage - (Vector2) transform.position).normalized;
-
-        //move boid toward center
         float deltaTimeStrength = moveToCenterStrength * Time.deltaTime;
         direction=direction+deltaTimeStrength*faceDirection/(deltaTimeStrength+1);
         direction = direction.normalized;
     }
 
-    void AvoidEnemies(){
-
-        Vector2 faceAwayDirection = Vector2.zero;//this is a vector that will hold direction away from near boid so we can steer to it to avoid the collision.
-
-        //we need to iterate through all boid
+    //Code to make crew avoid nearby enemies
+    void AvoidEnemies()
+    {
+        Vector2 faceAwayDirection = Vector2.zero;
         foreach (UniversalBehaviour enemy in enemiesInScene){
             if(enemy != null){
                 float distance = Vector2.Distance(enemy.transform.position, transform.position);
-                //if the distance is within range calculate away vector from it and subtract from away direction.
                 if (distance <= collisionAvoidCheckDistance){
                     faceAwayDirection = faceAwayDirection+ (Vector2)(transform.position - enemy.transform.position);
                 }
             }
         }
-
-        faceAwayDirection = faceAwayDirection.normalized;//we need to normalize it so we are only getting direction
-
+        faceAwayDirection = faceAwayDirection.normalized;
         direction=direction+avoidOtherStrength*faceAwayDirection/(avoidOtherStrength +1);
         direction = direction.normalized;
     }
-    void AlignWithOthers(){
-        //we will need to find average direction of all nearby boids
+
+    //Code to align crew with other crew around them
+    void AlignWithOthers()
+    {
         Vector2 directionSum = Vector3.zero;
         int count = 0;
-
         foreach (CrewFlocking boid in boidsInScene){
             float distance = Vector2.Distance(boid.transform.position, transform.position);
             if (distance <= alignmentCheckDistance){
@@ -114,17 +112,16 @@ public class CrewFlocking : MonoBehaviour
                 count++;
             }
         }
-
         Vector2 directionAverage = directionSum / count;
         directionAverage = directionAverage.normalized;
-
-        //now add this direction to direction vector to steer towards it
         float deltaTimeStrength = alignWithOthersStrength * Time.deltaTime;
         direction=direction+deltaTimeStrength*directionAverage/(deltaTimeStrength+1);
         direction = direction.normalized;
     }
 
-    void SwitchRotation(Vector2 direction){
+    //Rotate sprite so it faces the direction of movement
+    void SwitchRotation(Vector2 direction)
+    {
         if ((direction.x > 0 && !facesRight) || (direction.x < 0 && facesRight)){
             facesRight = !facesRight;
             Vector3 face = transform.localScale;

@@ -9,9 +9,19 @@ public class EnemySpawning : MonoBehaviour
     public Tilemap spawnArea;
     public List<Vector3> freeSpots;
     private Vector3 chosenSpot;
+    public int enemyOnSpawn;
 
-    void Start()
+    void Awake()
     {
+        int max;
+        if(GlobalVars.difficulty == "Hard"){
+            max = 8;
+        }
+        else{
+            max = 6;
+        }
+        enemyOnSpawn = Random.Range(3, max);}
+    void Start(){
         freeSpots = new List<Vector3>();
         for (int n = spawnArea.cellBounds.xMin; n < spawnArea.cellBounds.xMax; n++)
         {
@@ -26,7 +36,7 @@ public class EnemySpawning : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < enemyPrefab.GetComponent<UniversalBehaviour>().enemyOnSpawn; i++)
+        for (int i = 0; i < enemyOnSpawn; i++)
         {
             chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];
             Instantiate(enemyPrefab,chosenSpot,Quaternion.identity);

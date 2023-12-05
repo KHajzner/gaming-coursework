@@ -13,8 +13,8 @@ public class LavaBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Awake(){
         currentLava = smallPool;
-        removeSpawn(smallPool);
         addObstacles(smallPool);
+        removeSpawn(smallPool);
         changeMovableArea(smallPool);
     }
     void Start()

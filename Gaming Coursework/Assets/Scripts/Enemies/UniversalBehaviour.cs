@@ -24,7 +24,6 @@ public class UniversalBehaviour : MonoBehaviour
     bool facesRight = true;
 
     //UI
-    public int enemyOnSpawn;
     public EnemyCounter enemyCounter;
     [SerializeField] FloatingHealthBar healthBar;
     

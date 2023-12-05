@@ -6,22 +6,31 @@ using TMPro;
 public class EnemyCounter : MonoBehaviour
 {
     public TMP_Text EnemyCount;
-    public GameObject enemyPrefab;
     public int killedEnemies;
     public Won won;
-    // Start is called before the first frame update
-    void Start()
-    {
-        EnemyCount.SetText(killedEnemies + "/" + enemyPrefab.GetComponent<UniversalBehaviour>().enemyOnSpawn);
-        if(enemyPrefab.GetComponent<UniversalBehaviour>().enemyOnSpawn == 0){
+    public int enemyOnStart = 0;
+    public string enemyType;
+
+    void Start(){
+        Invoke("CreateCounter", 0.1f);
+    }
+    public void CreateCounter(){
+        foreach(GameObject enemyObject in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            if (enemyObject.name == enemyType + "(Clone)"){
+                enemyOnStart++;
+            }
+        }
+        EnemyCount.SetText(killedEnemies + "/" + enemyOnStart);
+        if(enemyOnStart == 0){
             won.enemiesBeaten += 1;
         }
     }
     public void UpdateCounter(){
         killedEnemies += 1;
-        EnemyCount.SetText(killedEnemies + "/" + enemyPrefab.GetComponent<UniversalBehaviour>().enemyOnSpawn);
+        EnemyCount.SetText(killedEnemies + "/" + enemyOnStart);
 
-        if (killedEnemies == enemyPrefab.GetComponent<UniversalBehaviour>().enemyOnSpawn){
+        if (killedEnemies == enemyOnStart){
             won.enemiesBeaten += 1;
         }
     }

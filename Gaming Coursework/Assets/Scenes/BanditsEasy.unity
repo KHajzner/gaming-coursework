@@ -10498,7 +10498,7 @@ GameObject:
   - component: {fileID: 302460614}
   - component: {fileID: 302460617}
   - component: {fileID: 302460616}
-  - component: {fileID: 302460615}
+  - component: {fileID: 302460618}
   m_Layer: 5
   m_Name: KnightCounter
   m_TagString: Untagged
@@ -10525,22 +10525,6 @@ RectTransform:
   m_AnchoredPosition: {x: 387.4, y: 223.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &302460615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302460613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c55820de6ff3c57849fd5eb0e0494f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyCount: {fileID: 302460616}
-  enemyPrefab: {fileID: 3756737589885519528, guid: a3180d131a858fce1bd2571df3c9829e, type: 3}
-  killedEnemies: 0
-  won: {fileID: 1729965942}
 --- !u!114 &302460616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10638,6 +10622,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302460613}
   m_CullTransparentMesh: 1
+--- !u!114 &302460618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302460613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c55820de6ff3c57849fd5eb0e0494f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyCount: {fileID: 302460616}
+  killedEnemies: 0
+  won: {fileID: 1729965942}
+  enemyOnStart: 0
+  enemyType: Knight
 --- !u!1 &409836279
 GameObject:
   m_ObjectHideFlags: 0
@@ -10850,9 +10851,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 409836283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -234.3, y: 243.4}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 304.5, y: -58.75003}
   m_SizeDelta: {x: 135, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475301810
@@ -11123,10 +11124,10 @@ RectTransform:
   - {fileID: 40836990}
   m_Father: {fileID: 409836283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -493.14026, y: -308.95016}
-  m_SizeDelta: {x: 81.877, y: 32.8984}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 78, y: 41}
+  m_SizeDelta: {x: 81.877014, y: 32.898407}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737668395
 MonoBehaviour:
@@ -11914,9 +11915,9 @@ RectTransform:
   - {fileID: 302460614}
   m_Father: {fileID: 409836283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -550, y: -298.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1185757272
@@ -14566,6 +14567,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8281951974434872949, guid: 423226257939a0190a921b569e727310, type: 3}
   spawnArea: {fileID: 1201554054}
   freeSpots: []
+  enemyOnSpawn: 0
 --- !u!114 &1201554052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14581,6 +14583,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3756737589885519528, guid: a3180d131a858fce1bd2571df3c9829e, type: 3}
   spawnArea: {fileID: 1201554054}
   freeSpots: []
+  enemyOnSpawn: 0
 --- !u!483693784 &1201554053
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -20386,9 +20389,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyCount: {fileID: 1584891574}
-  enemyPrefab: {fileID: 8281951974434872949, guid: 423226257939a0190a921b569e727310, type: 3}
   killedEnemies: 0
   won: {fileID: 1729965942}
+  enemyOnStart: 0
+  enemyType: Peasant
 --- !u!114 &1584891574
 MonoBehaviour:
   m_ObjectHideFlags: 0

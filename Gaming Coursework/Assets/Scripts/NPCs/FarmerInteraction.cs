@@ -13,6 +13,7 @@ public class FarmerInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("FarmBackground");
         introduction.gameObject.SetActive(false);
         interact.gameObject.SetActive(false);
         afterClick.gameObject.SetActive(false);
@@ -24,6 +25,7 @@ public class FarmerInteraction : MonoBehaviour
     {
         if (canInteract && !hasInteracted){
             if (Input.GetMouseButtonDown(0)){
+                FindObjectOfType<AudioManager>().Play("Click");
                 introduction.gameObject.SetActive(true);
                 interact.gameObject.SetActive(false);
                 hasInteracted = true;
@@ -50,6 +52,7 @@ public class FarmerInteraction : MonoBehaviour
 
     public void AfterClick()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         introduction.gameObject.SetActive(false);
         afterClick.gameObject.SetActive(true);
         arrow.gameObject.SetActive(true);
@@ -57,6 +60,7 @@ public class FarmerInteraction : MonoBehaviour
     }
     public void Accept()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         string dif = GlobalVars.difficulty;
         if (dif == null){
             dif = "Easy";
@@ -66,6 +70,7 @@ public class FarmerInteraction : MonoBehaviour
     
     public void Deny()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         if(GlobalVars.difficulty == "Easy"){
             GlobalVars.crewScore -= 3;
         }

@@ -15,6 +15,7 @@ public class ShipMovement : MonoBehaviour
     Rigidbody2D shipRB;
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("OceanBackground");
         shipRB = ship.GetComponent<Rigidbody2D>();
         finishedScreen.SetActive(false);
         initialPos = ship.GetComponent<Rigidbody2D>().position;
@@ -43,6 +44,7 @@ public class ShipMovement : MonoBehaviour
     //Decrease ship's mass by decreasing the number of crew on board
     public void ThrowCrewOverboard()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         if(GlobalVars.crewScore > 1){
             GlobalVars.crewScore = GlobalVars.crewScore - 1;
             Debug.Log(GlobalVars.crewScore);
@@ -57,7 +59,8 @@ public class ShipMovement : MonoBehaviour
 
     public void Unstuck()
     {
-       shipRB.position = initialPos;
+        FindObjectOfType<AudioManager>().Play("Click");
+        shipRB.position = initialPos;
     }
 
     public void FinishedGame()

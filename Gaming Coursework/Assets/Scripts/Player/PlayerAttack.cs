@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     //Add cooldown to the attack
     IEnumerator RecentClick()
     {
+        FindObjectOfType<AudioManager>().Play("Slash");
         clickedRecently = true;
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.6f);

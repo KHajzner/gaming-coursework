@@ -55,15 +55,17 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Damage(float damageTaken)
     {
-            health -= damageTaken;
-            animator.SetTrigger("Hurt");
-            ClampHealth();
+        FindObjectOfType<AudioManager>().Play("FriendlyHit");
+        health -= damageTaken;
+        animator.SetTrigger("Hurt");
+        ClampHealth();
             
     }
 
     IEnumerator RoutineDamage(float damageTaken)
     {
         while(health >= 0){
+            FindObjectOfType<AudioManager>().Play("FriendlyHit");
             health -= damageTaken;
             ClampHealth();
             animator.SetTrigger("Hurt");
@@ -73,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator Death()
     {
+        FindObjectOfType<AudioManager>().Play("Death");
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(1f);
         Time.timeScale = 0;
@@ -81,6 +84,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Restart()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         if (deathRoutine != null){
             StopCoroutine(deathRoutine);
         }

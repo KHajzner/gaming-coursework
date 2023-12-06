@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
     //Move player to the starting position
     public void Unstuck()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         player.GetComponent<Rigidbody2D>().position = initialPos;
     }
 }

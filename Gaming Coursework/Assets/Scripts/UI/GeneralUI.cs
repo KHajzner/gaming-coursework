@@ -8,6 +8,7 @@ public class GeneralUI : MonoBehaviour
 
     public void CloseInfo()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         information.SetActive(false);
     }
 }

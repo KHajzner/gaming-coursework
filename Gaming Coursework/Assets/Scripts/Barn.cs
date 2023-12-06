@@ -31,6 +31,7 @@ public class Barn : MonoBehaviour
     }
 
     public void UpdateFarmerMessage(){
+        FindObjectOfType<AudioManager>().Play("Completed");
         sheepMessage.SetText("There are " + (sheepSpawning.sheepPerSpawn - sheepCount) + " sheep left.");
     }
 }

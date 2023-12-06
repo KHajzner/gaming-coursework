@@ -18,13 +18,14 @@ public class EnemySpawning : MonoBehaviour
             max = 8;
         }
         else{
-            max = 6;
+            max = 5;
         }
         enemyOnSpawn = Random.Range(3, max);
     }
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().Play("BanditBackground");
         //Get all the tiles from the spawnArea tilemap
         freeSpots = new List<Vector3>();
         for (int n = spawnArea.cellBounds.xMin; n < spawnArea.cellBounds.xMax; n++){

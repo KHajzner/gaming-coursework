@@ -15,6 +15,7 @@ public class CrewAttack : MonoBehaviour
         while(true){
             var probability = Random.Range(0.0f, 1.0f);
             if (probability <= 0.40){
+                FindObjectOfType<AudioManager>().Play("Slash");
                 animator.SetTrigger("Attack");
             }
             yield return new WaitForSeconds(3f);

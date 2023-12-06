@@ -14,12 +14,14 @@ public class FarmerInMaze : MonoBehaviour
     }
     public void SwitchMenu()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         menuOn = !menuOn;
         initialMenu.gameObject.SetActive(menuOn);
         endEarlyConfirmation.gameObject.SetActive(!menuOn);
     }
     public void ConfirmationYes()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
         continuationMenu.gameObject.SetActive(true);
         endEarlyConfirmation.gameObject.SetActive(false);
         endMessage.SetText("Oh that's too bad. Good luck!");

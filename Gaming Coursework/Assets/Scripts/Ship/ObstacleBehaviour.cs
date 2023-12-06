@@ -25,9 +25,6 @@ public class ObstacleBehaviour : MonoBehaviour
                 if(isTreasure){
                     TreasureFound();
                 }
-                else{
-                    Debug.Log("Not treausre");
-                }
             }
         }
     }
@@ -50,6 +47,5 @@ public class ObstacleBehaviour : MonoBehaviour
     void TreasureFound()
     {
         ship.GetComponent<ShipMovement>().FinishedGame();
-        Debug.Log("Found treasure!");
     }
 }

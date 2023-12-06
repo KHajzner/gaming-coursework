@@ -31,6 +31,7 @@ public class CrewHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        FindObjectOfType<AudioManager>().Play("FriendlyHit");
         health -= damage;
         healthBar.UpdateHealthBar(health, maxHealth);
         animator.SetTrigger("Hurt");
@@ -38,6 +39,7 @@ public class CrewHealth : MonoBehaviour
 
     IEnumerator Death()
     {
+        FindObjectOfType<AudioManager>().Play("Death");
         animator.ResetTrigger("Hurt");
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(0.5f);

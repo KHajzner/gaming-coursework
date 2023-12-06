@@ -10,6 +10,7 @@ public class NextScene : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "NextScene"){
+            FindObjectOfType<AudioManager>().Play("Click");
             Next(nextSceneName);
         }
     }

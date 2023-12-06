@@ -14,7 +14,7 @@ public class SheepSpawning : MonoBehaviour
 
     void Start()
     { 
-
+        FindObjectOfType<AudioManager>().Play("SheepBackground");
         //Ranomly choose number of sheep
         if(GlobalVars.difficulty == "Easy"){
             sheepPerSpawn = Random.Range(2, 5);

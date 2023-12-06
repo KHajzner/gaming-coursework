@@ -65,6 +65,7 @@ public class UniversalBehaviour : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        FindObjectOfType<AudioManager>().Play("EnemyHit");
         health -= (damage/armour);
         healthBar.UpdateHealthBar(health, maxHealth);
         animator.SetTrigger("Hurt");
@@ -74,8 +75,9 @@ public class UniversalBehaviour : MonoBehaviour
     {
         while (health > 0)
         {
+            FindObjectOfType<AudioManager>().Play("EnemyHit");
             health -= 10f;
-                    healthBar.UpdateHealthBar(health, maxHealth);
+            healthBar.UpdateHealthBar(health, maxHealth);
             animator.SetTrigger("Hurt");
             flashRedRoutine = StartCoroutine(FlashRed());
             yield return new WaitForSeconds(1f);
@@ -92,6 +94,7 @@ public class UniversalBehaviour : MonoBehaviour
     }
     IEnumerator Death()
     {
+        FindObjectOfType<AudioManager>().Play("Death");
         animator.ResetTrigger("Hurt");
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(0.5f);

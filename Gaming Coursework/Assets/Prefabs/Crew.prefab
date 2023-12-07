@@ -231,7 +231,7 @@ MonoBehaviour:
   moveToCenterStrength: 1
   localBoidsDistance: 4
   avoidOtherStrength: 3
-  collisionAvoidCheckDistance: 4
+  collisionAvoidCheckDistance: 2
   alignWithOthersStrength: 1
   alignmentCheckDistance: 4
 --- !u!114 &7753304831259979831
@@ -246,10 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c53dfbdf5f11fd589a6bdd6bc81993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  animator: {fileID: 8155491921196282261}
   healthBar: {fileID: 189561514458572652}
   crewFlocking: {fileID: 1392940422999040276}
+  animator: {fileID: 8155491921196282261}
+  health: 0
 --- !u!114 &3704521798188201026
 MonoBehaviour:
   m_ObjectHideFlags: 0

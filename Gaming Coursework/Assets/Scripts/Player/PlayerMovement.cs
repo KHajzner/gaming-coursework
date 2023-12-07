@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     bool facesRight = false, slides, verctical;
     Vector2 direction, standardVector, initialPos;
-    public bool up = true;
+    public bool up = true, ableToMove = true;
 
     void Start()
     {
@@ -20,12 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {   
-        direction.x = Input.GetAxisRaw("Horizontal");
-        if (up){
-            direction.y = Input.GetAxisRaw("Vertical");
-        }
-        else{
-            direction.y = 0;
+        if(ableToMove){
+            direction.x = Input.GetAxisRaw("Horizontal");
+            if (up){
+                direction.y = Input.GetAxisRaw("Vertical");
+            }
+            else{
+                direction.y = 0;
+            }
         }
         animator.SetBool("Moving", (direction.x != 0 || direction.y != 0));
     }

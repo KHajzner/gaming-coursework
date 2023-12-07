@@ -5,7 +5,7 @@ using TMPro;
 
 public class Won : MonoBehaviour
 {
-    public GameObject won;
+    public GameObject won, player;
     public TMP_Text winningText;
     public int enemiesBeaten = 0, enemiesToBeat = 2;
     public CrewSpawning crewSpawning;
@@ -21,7 +21,7 @@ public class Won : MonoBehaviour
         {
             UpdateWinningText();
             won.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            player.GetComponent<PlayerMovement>().ableToMove = false;
         }
     }
     void UpdateWinningText(){

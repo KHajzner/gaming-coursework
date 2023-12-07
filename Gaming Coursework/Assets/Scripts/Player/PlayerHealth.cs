@@ -33,7 +33,6 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         if (health <= 0){
-        	Debug.Log("You Lost!");
             deathRoutine = StartCoroutine(Death());
             if (Input.GetKey("space")){       
                 Restart();

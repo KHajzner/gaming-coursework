@@ -47,10 +47,7 @@ public class ShipMovement : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Click");
         if(GlobalVars.crewScore > 1){
             GlobalVars.crewScore = GlobalVars.crewScore - 1;
-            Debug.Log(GlobalVars.crewScore);
-            Debug.Log(currentMass);
             shipRB.mass = (shipRB.mass  - 0.1f);
-            Debug.Log(shipRB.mass );
         }
         else{
             warning.gameObject.SetActive(true);

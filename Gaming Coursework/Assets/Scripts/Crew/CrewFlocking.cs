@@ -24,10 +24,7 @@ public class CrewFlocking : MonoBehaviour
 
     void Start()
     {
-        foreach(GameObject crew in GameObject.FindGameObjectsWithTag("Crew")){
-            var flocking = crew.GetComponent<CrewFlocking>();
-            boidsInScene.Add(flocking);
-        }
+        UpdateCrewBoids();
         foreach(GameObject enemies in GameObject.FindGameObjectsWithTag("Enemy")){
             var enemy = enemies.GetComponent<UniversalBehaviour>();
             enemiesInScene.Add(enemy);
@@ -36,6 +33,9 @@ public class CrewFlocking : MonoBehaviour
     }
     void Update()
     {
+        if(GameObject.FindGameObjectsWithTag("Crew").Length != boidsInScene.Count){
+            UpdateCrewBoids();
+        }
         AlignWithOthers();
         MoveToCenter();
         AvoidEnemies();
@@ -57,7 +57,13 @@ public class CrewFlocking : MonoBehaviour
     {
         bounced = false;
     }
-
+    void UpdateCrewBoids(){
+        boidsInScene.Clear();
+        foreach(GameObject crew in GameObject.FindGameObjectsWithTag("Crew")){
+            var flocking = crew.GetComponent<CrewFlocking>();
+            boidsInScene.Add(flocking);
+        }
+    }
     //Move the crew to the center of their group
     void MoveToCenter()
     {

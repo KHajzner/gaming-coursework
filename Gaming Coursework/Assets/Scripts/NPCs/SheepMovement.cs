@@ -73,7 +73,7 @@ public class SheepMovement : MonoBehaviour
         if(collision.tag == "Player" && !carrot){
             interact.SetActive(true);
         }
-        if (collision.tag == "BarnEntrance"){
+        if (collision.tag == "BarnEntrance" && !inBarn){
             carrot = false;
             inBarn = true;
             interact.SetActive(false);

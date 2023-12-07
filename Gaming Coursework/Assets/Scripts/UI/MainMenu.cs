@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject mainMenu, difficultyMenu;
+    public GameObject mainMenu, difficultyMenu, mapMenu;
     bool menuOn = true;
 
     void Start()
     {
         FindObjectOfType<AudioManager>().Play("MainMenu");
         difficultyMenu.gameObject.SetActive(false);
+        mapMenu.SetActive(false);
     }
     public void SwitchMenu()
     {
@@ -25,14 +26,10 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Click");
         GlobalVars.difficulty = dif;
         GlobalVars.crewScore = 20;
-        if(GlobalVars.difficulty == "Easy"){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else{
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-        }
+        difficultyMenu.SetActive(false);
+        mapMenu.SetActive(true);
     }
-
+    
     public void Quit()
     {
         FindObjectOfType<AudioManager>().Play("Click");

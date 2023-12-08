@@ -4351,7 +4351,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -8715,9 +8715,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1220050538}
   - component: {fileID: 1220050537}
+  - component: {fileID: 1220050539}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8756,6 +8757,23 @@ Transform:
   - {fileID: 1776614478}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220050539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220050536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f7f95f548aa7f1bdd159b8cc76ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartPrefab: {fileID: 8175268981614195565, guid: b2cb46909c01f26a39a4946f182a80db, type: 3}
+  currentHeartNumber: 0
+  tilemap: {fileID: 1776614480}
+  freeSpots: []
+  tileBase: {fileID: 11400000, guid: 5904bf0d3cd9eb342ba31c0030e43083, type: 2}
 --- !u!1001 &1308445473
 PrefabInstance:
   m_ObjectHideFlags: 0

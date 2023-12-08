@@ -1,19 +1,24 @@
-# gaming-coursework
+# CSC3232 Coursework
 
-Credits:
-- code for Player HealthBar are  made by ariel oliveira [o.arielg@gmail.com] and taken from https://assetstore.unity.com/packages/tools/gui/simple-heart-health-system-120676 and adapted slightly to fit my code
+## Project Summary
 
-Code for itterating through tilemap gotten from this forum thread from user DDaddySupreme
-https://forum.unity.com/threads/tilemap-tile-positions-assistance.485867/
+Project created for the purposes of doing CSC3232 Coursework at Newcastle University.
 
-MoveToCenter, AlignWithOthers and AvoidEnemies functions for the crew in CrewFlocking.cs from here: https://blog.yarsalabs.com/flock-simulation-using-boids-in-unity/ with small changes to make it fully work and with AvoidEnemies changed from a function to avoid other boids to avoiding the enemies
+## Credits
+- Code for Player HealthBar was created by ariel oliveira [o.arielg@gmail.com] and taken from [this asset](https://assetstore.unity.com/packages/tools/gui/simple-heart-health-system-120676) from unity asset store and adapted slightly to fit my code
 
-Move on Tilemap script from demo of the Aoiti pathfinding plugin
+- Code for itterating through a tilemap is from user DDaddySupreme under [this thread](https://forum.unity.com/threads/tilemap-tile-positions-assistance.485867/)
 
-Enemy and Crew health bars https://www.youtube.com/watch?v=_lREXfAMUcE
+- MoveToCenter, AlignWithOthers and AvoidEnemies functions for the crew in CrewFlocking.cs from 
+[this blog](https://blog.yarsalabscomflock-simulation-using-boids-in-unity/) with small changes to make it fully work and with AvoidEnemies changed from a function to avoid other boids to avoiding the enemies
 
-Audio manager from Brackeys https://www.youtube.com/watch?v=6OT43pvUyfY
+- Move on Tilemap script from demo of the Aoiti pathfinding plugin
 
-Bandit and Sheep Icons from Flaticon
-Pirate Hat Icon by Ethisham Abid from Flaticon
-X Icon by juicy_fish from Flaticon
+- Enemy and Crew health bars from [this](https://www.youtube.com/watch?v=_lREXfAMUcE) youtube tutorial
+
+- Audio manager from Brackeys [this](https://www.youtube.com/watch?v=6OT43pvUyfY) youtube tutorial
+
+### Icons on the map
+- Bandit and Sheep Icons from Flaticon
+- Pirate Hat Icon by Ethisham Abid from Flaticon
+- X Icon by juicy_fish from Flaticon

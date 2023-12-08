@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  maxHealth: 10
   animator: {fileID: 2942627167120889850}
   lost: {fileID: 0}
   heartsParent: {fileID: 0}
@@ -244,6 +245,7 @@ MonoBehaviour:
   player: {fileID: 98532792737913118}
   animator: {fileID: 2942627167120889850}
   up: 1
+  ableToMove: 1
 --- !u!114 &6245017908799122481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,9 +338,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.28448212, y: 0.76444626}
       - {x: 0.2951535, y: 1.5457153}
-      - {x: -0.4451031, y: 1.3671793}
-      - {x: -0.69834507, y: 1.0579797}
-      - {x: -0.6573495, y: 0.51734364}
+      - {x: -0.57118076, y: 1.6060063}
+      - {x: -1.0508589, y: 1.2515358}
+      - {x: -1.134516, y: 0.5715108}
       - {x: -0.31655127, y: 0.13010192}
   m_UseDelaunayMesh: 0
 --- !u!114 &1229256755237816177
@@ -353,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab742b270b14e059b2fa30a9a054b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
 --- !u!1 &6890197564110836015
 GameObject:
   m_ObjectHideFlags: 0

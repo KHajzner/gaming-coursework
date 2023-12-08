@@ -13,6 +13,7 @@ public class HealthPickUpBehaviour : MonoBehaviour
         if(collision.tag == "Player"){
             if(player.GetComponent<PlayerHealth>().health < 10){
                 collision.gameObject.GetComponent<PlayerHealth>().health += 1f;
+                collision.gameObject.GetComponent<PlayerHealth>().ClampHealth();
                 grid.GetComponent<HealthPickUpSpawn>().currentHeartNumber --;
                 player.GetComponent<PlayerHealth>().UpdateHeartsHUD();
                 Destroy(gameObject);

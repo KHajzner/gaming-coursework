@@ -6,8 +6,12 @@ using TMPro;
 public class FinishedGame : MonoBehaviour
 {
     public TMP_Text congrats;
-    public GameObject chest;
+    public GameObject chest, finishButton;
 
+    void Start()
+    {
+        finishButton.SetActive(false);
+    }
     void Update()
     {
         if(Input.GetMouseButtonDown(0)){
@@ -21,7 +25,8 @@ public class FinishedGame : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Completed");
         chest.GetComponent<Animator>().SetBool("Open", true);
-        Invoke("FriendsAlongTheWay", 1.5f);
+        Invoke("FriendsAlongTheWay", 1f);
+        Invoke("ShowFinishButton", 2f);
     }
 
     void FriendsAlongTheWay()
@@ -41,5 +46,9 @@ public class FinishedGame : MonoBehaviour
             congrats.SetText("You've got the treasure, but at what cost? Was it really worth it? I think you should do some thinking about your personal values. Hopefully till we never meet again, Capitain.");
         }
 
+    }
+
+    void ShowFinishButton(){
+        finishButton.SetActive(true);
     }
 }

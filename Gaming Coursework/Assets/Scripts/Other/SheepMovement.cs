@@ -57,26 +57,25 @@ public class SheepMovement : MonoBehaviour
         if (collision.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
             carrot = true;
-            interact.SetActive(false);
+            Destroy(interact);
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player"){
+        if(collision.tag == "Player" && interact != null){
             interact.SetActive(false);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && !carrot){
+        if(collision.tag == "Player" && !carrot && interact != null){
             interact.SetActive(true);
         }
         if (collision.tag == "BarnEntrance" && !inBarn){
             carrot = false;
             inBarn = true;
-            interact.SetActive(false);
             barn.sheepCount += 1;
             barn.UpdateFarmerMessage();      
         }

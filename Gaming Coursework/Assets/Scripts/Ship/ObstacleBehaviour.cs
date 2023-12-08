@@ -7,13 +7,14 @@ public class ObstacleBehaviour : MonoBehaviour
     
     public bool isTreasure = false;
     bool hasInteracted, canInteract;
-    public GameObject interact;
+    public GameObject interact, notTreasure;
     GameObject ship;
 
     void Start()
     {
         ship = GameObject.Find("Ship");
         interact.SetActive(false);
+        notTreasure.SetActive(false);
     }
     
     void FixedUpdate()
@@ -24,6 +25,9 @@ public class ObstacleBehaviour : MonoBehaviour
                 hasInteracted = true;
                 if(isTreasure){
                     TreasureFound();
+                }
+                else{
+                    notTreasure.SetActive(true);
                 }
             }
         }

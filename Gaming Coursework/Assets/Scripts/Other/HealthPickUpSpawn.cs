@@ -33,7 +33,7 @@ public class HealthPickUpSpawn : MonoBehaviour
     IEnumerator SpawnHeartPickup()
     {
         while(true){
-            if(currentHeartNumber < 2){
+            if(currentHeartNumber < 3){
                 yield return new WaitForSeconds(15f);
                 FindObjectOfType<AudioManager>().Play("Event");
                 chosenSpot = freeSpots[Random.Range(0, freeSpots.Count)];

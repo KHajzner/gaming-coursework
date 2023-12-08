@@ -1007,7 +1007,7 @@ MonoBehaviour:
   mapMenu: {fileID: 1816133632}
   encounterMessage: {fileID: 1836809392}
   moveByName: 1
-  speed: 100
+  speed: 150
   nextSceneName: Ocean
 --- !u!114 &410762133
 MonoBehaviour:
@@ -4696,6 +4696,30 @@ PrefabInstance:
     - target: {fileID: 686329585824194222, guid: 90501749f8323f58a9333116001cecb3, type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 796408983445309479, guid: 90501749f8323f58a9333116001cecb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 410762133}
+    - target: {fileID: 796408983445309479, guid: 90501749f8323f58a9333116001cecb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Options
+      objectReference: {fileID: 0}
+    - target: {fileID: 3143857654844281033, guid: 90501749f8323f58a9333116001cecb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 410762133}
+    - target: {fileID: 3143857654844281033, guid: 90501749f8323f58a9333116001cecb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598951838850179123, guid: 90501749f8323f58a9333116001cecb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 410762133}
+    - target: {fileID: 6598951838850179123, guid: 90501749f8323f58a9333116001cecb3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 6891997581204510512, guid: 90501749f8323f58a9333116001cecb3, type: 3}
       propertyPath: m_Pivot.x

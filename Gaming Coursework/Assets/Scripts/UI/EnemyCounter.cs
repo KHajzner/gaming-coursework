@@ -7,7 +7,7 @@ public class EnemyCounter : MonoBehaviour
 {
     public TMP_Text EnemyCount;
     public int enemyOnStart = 0, killedEnemies;
-    public Won won;
+    public WinningMessage won;
     public string enemyType;
 
     void Start()

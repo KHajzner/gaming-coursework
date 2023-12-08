@@ -142,7 +142,7 @@ public class PlayerHealth : MonoBehaviour
             heartFills[i] = temp.transform.Find("HeartFill").GetComponent<Image>();
         }
     }
-    void ClampHealth()
+    public void ClampHealth()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         if (onHealthChangedCallback != null)

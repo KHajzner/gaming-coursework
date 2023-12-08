@@ -12,4 +12,5 @@ public static class GlobalVars
 
     //How much crew left on bandit level
     public static int crewOnBandit { get; set; }
+    public static int currentResolution { get; set; }
 }

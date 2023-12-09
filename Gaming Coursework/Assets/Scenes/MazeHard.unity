@@ -5695,7 +5695,7 @@ MonoBehaviour:
   mapMenu: {fileID: 1257678375}
   encounterMessage: {fileID: 1924807007}
   moveByName: 1
-  speed: 150
+  speed: 200
   nextSceneName: Ocean
 --- !u!114 &1408250510
 MonoBehaviour:

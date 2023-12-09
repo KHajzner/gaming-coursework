@@ -4431,7 +4431,7 @@ MonoBehaviour:
   mapMenu: {fileID: 1017093655}
   encounterMessage: {fileID: 402072610}
   moveByName: 1
-  speed: 150
+  speed: 200
   nextSceneName: Farmer
 --- !u!114 &409836285
 MonoBehaviour:

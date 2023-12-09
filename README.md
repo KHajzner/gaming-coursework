@@ -4,6 +4,10 @@
 
 Project created for the purposes of doing CSC3232 Coursework at Newcastle University.
 
+## GitHub Repository
+
+https://github.com/KHajzner/gaming-coursework
+
 ## Credits
 - Code for Player HealthBar was created by ariel oliveira [o.arielg@gmail.com] and taken from [this asset](https://assetstore.unity.com/packages/tools/gui/simple-heart-health-system-120676) from unity asset store and adapted slightly to fit my code
 

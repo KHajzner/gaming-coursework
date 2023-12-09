@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c038338c4c08b2b81d63a3a058c27f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speed: 1
   crew: {fileID: 4066986190413390592}
   animator: {fileID: 8155491921196282261}
   boidsInScene: []

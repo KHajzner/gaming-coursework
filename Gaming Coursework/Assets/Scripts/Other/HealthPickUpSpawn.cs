@@ -10,26 +10,31 @@ public class HealthPickUpSpawn : MonoBehaviour
     public List<Vector3> freeSpots;
     private Vector3 chosenSpot;
     public TileBase tileBase;
+    BoundsInt bounds;
     bool spawnHearts;
     void Start()
     {
-        freeSpots = new List<Vector3>();
-
-        for (int n = tilemap.cellBounds.xMin; n < tilemap.cellBounds.xMax; n++)
-        {
-            for (int p = tilemap.cellBounds.yMin; p < tilemap.cellBounds.yMax; p++)
-            {
-                Vector3Int localPlace = (new Vector3Int(n, p, (int)tilemap.transform.position.y));
-                Vector3 place = tilemap.CellToWorld(localPlace);
-                if (tilemap.HasTile(localPlace) && tilemap.GetTile(localPlace) == tileBase)
-                {
-                    freeSpots.Add(place);
-                }
-            }
-        }
+        StartCoroutine(GetSpawnableArea());
         StartCoroutine(SpawnHeartPickup());
     }
     
+    IEnumerator GetSpawnableArea(){
+        while(true){
+            freeSpots.Clear();
+            freeSpots = new List<Vector3>();
+            for (int n = tilemap.cellBounds.xMin; n < tilemap.cellBounds.xMax; n++){
+                for (int p = tilemap.cellBounds.yMin; p < tilemap.cellBounds.yMax; p++){
+                    Vector3Int localPlace = (new Vector3Int(n, p, (int)tilemap.transform.position.y));
+                    Vector3 place = tilemap.CellToWorld(localPlace);
+                    if (tilemap.HasTile(localPlace) && tilemap.GetTile(localPlace) == tileBase){
+                        freeSpots.Add(place);
+                    }
+                }
+            }
+            yield return new WaitForSeconds(20f);
+        }
+    }
+
     IEnumerator SpawnHeartPickup()
     {
         while(true){

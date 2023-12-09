@@ -3681,7 +3681,7 @@ MonoBehaviour:
   mapMenu: {fileID: 951666886}
   encounterMessage: {fileID: 548349965}
   moveByName: 0
-  speed: 150
+  speed: 200
   nextSceneName: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

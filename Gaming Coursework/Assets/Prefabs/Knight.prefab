@@ -332,7 +332,6 @@ MonoBehaviour:
   maxHealth: 100
   speed: 3
   armour: 2
-  takeDamage: {fileID: 5837083250868951220}
   player: {fileID: 0}
   enemy: {fileID: 2700768788333353611}
   enemyType: Knight
@@ -353,6 +352,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UB: {fileID: 2744924262384591529}
   animator: {fileID: 5969359946023324970}
+  startedAttacking: 0
+  attackCrew: 0
+  targetPerson: {x: 0, y: 0, z: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &513296725743501127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +381,7 @@ MonoBehaviour:
     movementCost: 30
   path: []
   stepTime: 0.75
+  knightAI: {fileID: 2567008164136452631}
 --- !u!82 &5837083250868951220
 AudioSource:
   m_ObjectHideFlags: 0

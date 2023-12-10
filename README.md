@@ -22,6 +22,8 @@ https://github.com/KHajzner/gaming-coursework
 
 - Audio manager from Brackeys [this](https://www.youtube.com/watch?v=6OT43pvUyfY) youtube tutorial
 
+- Unity gitignore [template](https://github.com/github/gitignore/blob/main/Unity.gitignore)
+
 ### Icons on the map
 - Bandit and Sheep Icons from Flaticon
 - Pirate Hat Icon by Ethisham Abid from Flaticon

@@ -352,12 +352,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UB: {fileID: 2744924262384591529}
   animator: {fileID: 5969359946023324970}
-  startedAttacking: 0
-  attackCrew: 0
-  targetPerson: {x: 0, y: 0, z: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 2048
 --- !u!114 &513296725743501127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +375,6 @@ MonoBehaviour:
     movementCost: 30
   path: []
   stepTime: 0.75
-  knightAI: {fileID: 2567008164136452631}
 --- !u!82 &5837083250868951220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -630,11 +623,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.37589452, y: 0.09443182}
-      - {x: -0.94639593, y: 0.057384066}
-      - {x: -0.46196842, y: -0.22497994}
-      - {x: 0.5396323, y: -0.41758797}
-      - {x: 0.8330053, y: -0.16939595}
+    - - {x: 0.058374166, y: -0.03489937}
+      - {x: -0.45107454, y: -0.020798452}
+      - {x: -0.16598114, y: -0.15258619}
+      - {x: 0.3086705, y: -0.23410739}
+      - {x: 0.62329364, y: -0.13167033}
   m_UseDelaunayMesh: 0
 --- !u!114 &1673667344107856408
 MonoBehaviour:
@@ -726,14 +719,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.3696825, y: 0.71885484}
+    - - {x: 0.3362505, y: 0.64061505}
       - {x: -0.28314108, y: 0.4860919}
       - {x: 0.20820183, y: 0.48961172}
-      - {x: 0.5204551, y: 0.12995213}
+      - {x: 0.3301079, y: 0.09647783}
       - {x: 0.27895224, y: -0.26691884}
-      - {x: 0.6996225, y: -0.5247647}
-      - {x: 0.94603693, y: -0.2349549}
-      - {x: 0.8718393, y: 0.42240745}
+      - {x: 0.571858, y: -0.4860842}
+      - {x: 0.77963126, y: -0.1211309}
+      - {x: 0.70341724, y: 0.3751362}
   m_UseDelaunayMesh: 0
 --- !u!114 &1438374611857187255
 MonoBehaviour:

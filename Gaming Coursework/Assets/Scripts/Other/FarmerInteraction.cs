@@ -47,6 +47,7 @@ public class FarmerInteraction : MonoBehaviour
     {
         if(collision.tag == "Farmer"){
             interact.gameObject.SetActive(false);
+            canInteract = false;
        }
     }
 

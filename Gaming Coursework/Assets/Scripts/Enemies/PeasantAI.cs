@@ -9,7 +9,7 @@ public class PeasantAI : MonoBehaviour
     public LayerMask layerMask;
     Coroutine chooseAttack = null;
     float distanceBetween, viewingDistance = 4f, hittingDistance = 1.5f;
-    bool startedAttacking = false, attackCrew = false, startedReset = false;
+    bool startedAttacking = false, attackCrew = false, startedReset = false, facesRight = true;
     Collider2D[] nearCrew;
     int attackNum;
 
@@ -28,6 +28,7 @@ public class PeasantAI : MonoBehaviour
             }
             UB.enemy.position = Vector2.MoveTowards(UB.enemy.position, nearCrew[0].transform.position, UB.speed * Time.deltaTime);
             animator.SetBool("Moving", true);
+            SwitchRotation(nearCrew[0].transform.position);
         }
         //Attack player
         else{
@@ -43,6 +44,7 @@ public class PeasantAI : MonoBehaviour
             else{
                 animator.SetBool("Moving", false);
             }
+            SwitchRotation(UB.player.transform.position);
 
         }
     }
@@ -87,5 +89,14 @@ public class PeasantAI : MonoBehaviour
             }
         }
         startedReset = false;
+    }
+    void SwitchRotation(Vector3 target)
+    {
+        if ((target.x < UB.enemy.position.x && facesRight) || (target.x > UB.enemy.position.x  && !facesRight)){
+            facesRight = !facesRight;
+            Vector3 face = transform.localScale;
+            face.x *= -1;
+            transform.localScale = face;
+        }
     }
 }

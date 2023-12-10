@@ -20,7 +20,6 @@ public class WinningMessage : MonoBehaviour
         if(enemiesBeaten == enemiesToBeat)
         {
             UpdateWinningText();
-            Time.timeScale = 0;
             won.gameObject.SetActive(true);
             player.GetComponent<PlayerMovement>().ableToMove = false;
         }

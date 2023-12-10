@@ -8,7 +8,7 @@ public class CrewHealth : MonoBehaviour
     public CrewFlocking crewFlocking;
     public Animator animator;
     public float health;
-    float maxHealth = 8;
+    float maxHealth = 3;
     bool startedDying = false;
 
     

@@ -16,7 +16,7 @@ public class UniversalBehaviour : MonoBehaviour
 
     //Animations
     public Animator animator;
-    bool facesRight = true, startedDying = false;
+    bool startedDying = false;
 
     //UI
     public EnemyCounter enemyCounter;
@@ -42,11 +42,6 @@ public class UniversalBehaviour : MonoBehaviour
             StartCoroutine(Death());
             enemyCounter.UpdateCounter();
         }
-    }
-
-    void FixedUpdate()
-    {
-        SwitchRotation();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -100,15 +95,5 @@ public class UniversalBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
     	Destroy(gameObject);
         startedDying = false;
-    }
-    
-    void SwitchRotation()
-    {
-        if ((player.position.x < enemy.position.x && facesRight) || (player.position.x > enemy.position.x  && !facesRight)){
-            facesRight = !facesRight;
-            Vector3 face = transform.localScale;
-            face.x *= -1;
-            transform.localScale = face;
-        }
     }
 }

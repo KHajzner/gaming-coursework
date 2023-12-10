@@ -8,11 +8,12 @@ public class KnightAI : MonoBehaviour
     public Animator animator;
     float distanceBetween, waitTime, probability;
     float hittingDistance = 1.5f;
-    bool startedAttacking = false;
+    bool startedAttacking = false,  facesRight = true;
     Coroutine chooseAttack = null;
     int attackNum;
     
     //Check if the player is withing hitting distance
+
     void FixedUpdate()
     {
         distanceBetween = Vector2.Distance(UB.player.transform.position, UB.enemy.position);
@@ -20,6 +21,7 @@ public class KnightAI : MonoBehaviour
             startedAttacking = true;
             chooseAttack = StartCoroutine(ChooseAttack());
         }
+        SwitchRotation();
     }
 
     //Choose randomly between two attacks widh different probabilities
@@ -40,5 +42,14 @@ public class KnightAI : MonoBehaviour
         animator.SetTrigger("Attacking");
         yield return new WaitForSeconds(waitTime);
         startedAttacking = false;
+    }
+    void SwitchRotation()
+    {
+        if ((UB.player.position.x < UB.enemy.position.x && facesRight) || (UB.player.position.x > UB.enemy.position.x  && !facesRight)){
+            facesRight = !facesRight;
+            Vector3 face = transform.localScale;
+            face.x *= -1;
+            transform.localScale = face;
+        }
     }
 }

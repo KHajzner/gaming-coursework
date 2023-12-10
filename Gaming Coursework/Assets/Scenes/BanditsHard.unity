@@ -4431,7 +4431,7 @@ MonoBehaviour:
   mapMenu: {fileID: 1017093655}
   encounterMessage: {fileID: 402072610}
   moveByName: 1
-  speed: 200
+  speed: 150
   nextSceneName: Farmer
 --- !u!114 &409836285
 MonoBehaviour:
@@ -4555,7 +4555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 309, y: -64}
+  m_AnchoredPosition: {x: 320.52893, y: -87.272766}
   m_SizeDelta: {x: 135, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475301810
@@ -6559,7 +6559,7 @@ MonoBehaviour:
   movableArea: {fileID: 1776614480}
   obstacles: {fileID: 338601893}
   currentLava: {fileID: 0}
-  middleDelay: 30
+  middleDelay: 20
   bigDelay: 60
   tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!60 &1132084611
@@ -6761,7 +6761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -522, y: -257.5}
+  m_AnchoredPosition: {x: -572.8264, y: -274.51242}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1177139217

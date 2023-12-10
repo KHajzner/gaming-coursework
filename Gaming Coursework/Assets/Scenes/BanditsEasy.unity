@@ -10913,7 +10913,7 @@ MonoBehaviour:
   mapMenu: {fileID: 1385431522}
   encounterMessage: {fileID: 1105155694}
   moveByName: 1
-  speed: 200
+  speed: 150
   nextSceneName: Farmer
 --- !u!114 &409836285
 MonoBehaviour:
@@ -22881,7 +22881,7 @@ MonoBehaviour:
   movableArea: {fileID: 220660818}
   obstacles: {fileID: 1849195206}
   currentLava: {fileID: 0}
-  middleDelay: 30
+  middleDelay: 20
   bigDelay: 60
   tileBase: {fileID: 11400000, guid: 75ee8c8c44c6c0e419f5df30e94cbd3a, type: 2}
 --- !u!483693784 &1653246971

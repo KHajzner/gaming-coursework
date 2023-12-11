@@ -13,6 +13,10 @@ public class CrewSpawning : MonoBehaviour
 
     void Start()
     {
+        if (GlobalVars.crewScore == 0){
+            GlobalVars.crewScore = 20;
+        }
+
         //Get all tiles from the spawnArea Tilemap
         crewOnStart = Random.Range(4,7);
         GlobalVars.crewOnBandit = crewOnStart;

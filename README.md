@@ -24,6 +24,8 @@ https://github.com/KHajzner/gaming-coursework
 
 - Unity gitignore [template](https://github.com/github/gitignore/blob/main/Unity.gitignore)
 
+- All assets included in this project are taken from the Unity Asset Store
+
 ### Icons on the map
 - Bandit and Sheep Icons from Flaticon
 - Pirate Hat Icon by Ethisham Abid from Flaticon
